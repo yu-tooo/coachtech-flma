@@ -33,26 +33,26 @@ coachtechブランドのアイテムを出品する
 
 ## テーブル設計
 < --- 作成したテーブル設計の画像 ---- >
-![Alt text](image/usersTable.png)
+![Alt text](storage/image/usersTable.png)
 
-![Alt text](image/profilesTable.png)
+![Alt text](storage/image/profilesTable.png)
 
-![Alt text](image/itemsTable.png)
+![Alt text](storage/image/itemsTable.png)
 
-![Alt text](image/likesTable.png)
+![Alt text](storage/image/likesTable.png)
 
-![Alt text](image/commentsTable.png)
+![Alt text](storage/image/commentsTable.png)
 
-![Alt text](image/sold_itemTable.png)
+![Alt text](storage/image/sold_itemTable.png)
 
-![Alt text](image/conditionsTable.png)
+![Alt text](storage/image/conditionsTable.png)
 
-![Alt text](image/categoriesTable.png)
+![Alt text](storage/image/categoriesTable.png)
 
-![Alt text](image/category_itemTable.png)
+![Alt text](storage/image/category_itemTable.png)
 
 ## ER図
-![Alt text](image/ER_figure.png)
+![Alt text](storage/image/ER_figure.png)
 
 ## 他に記載することがあれば記述する
 例） ## 環境構築、## アカウントの種類（テストユーザーなど）
