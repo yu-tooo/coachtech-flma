@@ -20,4 +20,9 @@ class UserController extends Controller
     {
         return view('user.address');
     }
+
+    public function sell() 
+    {
+        return view('user.sell');
+    }
 }

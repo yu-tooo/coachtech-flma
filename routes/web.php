@@ -19,10 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [UserController::class, 'login'])->name('user.login');
-Route::get('/register', [UserController::class, 'register'])->name('user.register');
+Route::get('/login', [UserController::class, 'login'])
+->name('user.login');
+Route::get('/register', [UserController::class, 'register'])
+->name('user.register');
 
-Route::get('/purchase/address', [UserController::class, 'address']);
+Route::get('/purchase/address', [UserController::class, 'address'])
+->name('user.address');
+
+Route::get('/sell', [UserController::class, 'sell'])
+->name('user.sell');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
