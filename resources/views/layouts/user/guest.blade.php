@@ -16,15 +16,28 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased">
-  <header class="bg-black">
-    <x-user.application-logo class="w-20 h-20 fill-current" />
-  </header>
-  <div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0">
-    <div>
+<body>
+  <nav class="w-full px-4  bg-black">
+    <div class="flex items-center">
       <a href="/">
-        <x-user.application-logo class="w-20 h-20 fill-current text-gray-500" />
+        <x-user.application-logo />
       </a>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="flex flex-col justify-center items-center pt-6 sm:pt-0">
+    <div>
+      <x-user.application-logo class="w-20 h-20 fill-current text-gray-500" />
     </div>
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
