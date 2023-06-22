@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <header class="w-full px-4 h-12 bg-black"></header>
+  <x-user.menu-header />
 
   <div class="flex flex-col justify-center items-center py-8 w-11/12 sm:w-3/4 md:w-1/2 mx-auto">
     {{ $slot }}
