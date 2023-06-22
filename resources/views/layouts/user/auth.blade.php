@@ -9,8 +9,8 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Fonts -->
-  <!-- <link rel="preconnect" href="https://fonts.bunny.net"> -->
-  <!-- <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
+  <!-- <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> -->
 
   <!-- Scripts -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -25,15 +25,23 @@
     </div>
   </header>
 
-  <div class="flex flex-col justify-center items-center pt-6 sm:pt-0">
-    <div>
-      <x-user.application-logo class="w-20 h-20 fill-current text-gray-500" />
+  <div class="flex flex-col justify-center items-center py-8 w-11/12 sm:w-3/4 md:w-1/2 mx-auto">
+    <h1 class="mb-8 text-2xl font-extrabold">ログイン</h1>
+
+    <div class="w-full mb-8">
+      <label class="block text-lg font-bold" for="email">メールアドレス</label>
+      <input class="w-full rounded-sm focus:outline-none focus:ring-0" type="email" id="email">
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-      {{ $slot }}
+    <div class="w-full mb-8">
+      <label class="block text-lg font-bold" for="password">パスワード</label>
+      <input class="w-full rounded-sm focus:outline-none focus:ring-0" type="password" id="password">
     </div>
+
+    <button class="w-full mt-12 p-2 text-white text-lg rounded-sm bg-red-500">ログインする</button>
+    <a class="mt-6 text-blue-500 visited" href="/">会員登録はこちら</a>
   </div>
+
 </body>
 
 </html>
