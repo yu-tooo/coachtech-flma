@@ -1,4 +1,4 @@
-<x-user.app-layout>
+<x-user-login>
   <h1 class="mb-8 text-2xl font-extrabold">ログイン</h1>
 
   <div class="w-full mb-8">
@@ -13,4 +13,4 @@
 
   <x-user.button name="ログインする"/>
   <a class="mt-6 text-blue-500" href="{{ route('user.register') }}">会員登録はこちら</a>
-</x-user.app-layout>
+</x-user-login>
