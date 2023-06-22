@@ -25,4 +25,9 @@ class UserController extends Controller
     {
         return view('user.sell');
     }
+
+    public function profile()
+    {
+        return view('user.reprofile');
+    }
 }

@@ -23,10 +23,6 @@ class UserDetail extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
-</div>
-blade;
+        return view('layouts.user.profile');
     }
 }
