@@ -12,5 +12,5 @@
   </div>
 
   <x-user.button name="ログインする"/>
-  <a class="mt-6 text-blue-500" href="/">会員登録はこちら</a>
+  <a class="mt-6 text-blue-500" href="{{ route('user.register') }}">会員登録はこちら</a>
 </x-user.app-layout>
