@@ -17,23 +17,13 @@
 </head>
 
 <body>
-  <nav class="w-full px-4  bg-black">
+  <header class="w-full px-4  bg-black">
     <div class="flex items-center">
       <a href="/">
         <x-user.application-logo />
       </a>
     </div>
-  </nav>
-
-
-
-
-
-
-
-
-
-
+  </header>
 
   <div class="flex flex-col justify-center items-center pt-6 sm:pt-0">
     <div>

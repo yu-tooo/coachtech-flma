@@ -12,6 +12,6 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.user.guest');
+        return view('layouts.user.auth');
     }
 }
