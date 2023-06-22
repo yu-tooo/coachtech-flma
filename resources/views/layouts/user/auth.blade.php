@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>Coach Flma</title>
 
   <!-- Fonts -->
   <!-- <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <header class="w-full px-4  bg-black">
+  <header class="w-full px-4 h-12 bg-black">
     <div class="flex items-center">
       <a href="/">
         <x-user.application-logo />
