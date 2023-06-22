@@ -15,4 +15,9 @@ class UserController extends Controller
     {
         return view('user.register');
     }
+
+    public function address()
+    {
+        return view('user.address');
+    }
 }
