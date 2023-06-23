@@ -7,7 +7,7 @@
     </div>
 
     <div class="hidden md:block w-1/3 mr-4">
-      <input class="h-8 rounded-sm w-full" type="text" placeholder="何をお探しですか？">
+      <input class="h-8 rounded-sm w-full border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
     </div>
     <div class="hidden md:block">
       <button class="text-white outline-none hover:underline mr-2">ログイン</button>

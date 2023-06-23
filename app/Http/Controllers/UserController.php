@@ -30,4 +30,9 @@ class UserController extends Controller
     {
         return view('user.reprofile');
     }
+
+    public function purchase()
+    {
+        return view('user.purchase');
+    }
 }

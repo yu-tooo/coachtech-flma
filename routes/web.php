@@ -32,6 +32,9 @@ Route::get('/sell', [UserController::class, 'sell'])
 
 Route::get('/mypage/profile', [UserController::class, 'profile'])
 ->name('user.profile');
+
+Route::get('/purchase', [UserController::class, 'purchase'])
+->name('user.purchase');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
