@@ -11,8 +11,7 @@
 
     <x-user.partition name="商品名と説明" />
     <x-user.form-group name="name" labelName="商品名" />
-    <label class="block text-lg font-bold cursor-pointer hover:text-gray-600" for="description">商品の説明</label>
-    <textarea class="w-full rounded-md focus:ring-0 resize-none mb-8" name="description" id="description" rows="3"></textarea>
+    <x-user.form-textarea name="description" labelName="商品の説明" />
 
     <x-user.partition name="販売価格" />
     <x-user.form-group name="price" labelName="販売価格" placeholder="￥" />
