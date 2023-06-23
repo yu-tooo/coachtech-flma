@@ -5,7 +5,9 @@
 
   <x-user.form-group name="password" labelName="パスワード" type="password" />
 
-  <x-user.button name="会員登録する" />
-  
+  <div class="w-full mt-8">
+    <x-user.button name="会員登録する" />
+  </div>
+
   <a class="mt-6 text-blue-500" href="{{ route('user.login') }}">ログインはこちら</a>
 </x-user-login>

@@ -8,5 +8,7 @@
   <x-user.form-group name="address" labelName="住所" />
   <x-user.form-group name="building" labelName="建物" />
 
-  <x-user.button name="更新する" />
+  <div class="w-full mt-8">
+    <x-user.button name="更新する" />
+  </div>
 </x-user-detail>

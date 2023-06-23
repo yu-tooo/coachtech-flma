@@ -32,6 +32,8 @@
         <td>コンビニ払い</td>
       </tr>
     </table>
-    <x-user.button name="購入する"/>
+    <div class="w-full mt-8 md:mt-16">
+      <x-user.button name="購入する" />
+    </div>
   </x-slot>
 </x-user-purchase>

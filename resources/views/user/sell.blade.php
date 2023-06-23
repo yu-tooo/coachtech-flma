@@ -17,7 +17,9 @@
     <x-user.partition name="販売価格" />
     <x-user.form-group name="price" labelName="販売価格" placeholder="￥" />
 
-    <x-user.button name="出品する" />
+    <div class="w-full mt-8">
+      <x-user.button name="出品する" />
+    </div>
   </form>
 
 </x-user-entry>
