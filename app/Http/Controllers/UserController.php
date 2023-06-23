@@ -45,4 +45,9 @@ class UserController extends Controller
     {
         return view('user.comment');
     }
+
+    public function mypage()
+    {
+        return view('user.mypage');
+    }
 }

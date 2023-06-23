@@ -23,10 +23,6 @@ class UserCatalog extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
-</div>
-blade;
+        return view('layouts.user.main');
     }
 }

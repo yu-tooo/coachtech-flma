@@ -41,6 +41,9 @@ Route::get('/item', [UserController::class, 'item'])
 
 Route::get('/item/comment', [UserController::class, 'comment'])
 ->name('user.comment');
+
+Route::get('/mypage', [UserController::class, 'mypage'])
+->name('user.mypage');
 // Route::get/('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
