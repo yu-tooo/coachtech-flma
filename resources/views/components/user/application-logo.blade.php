@@ -1,5 +1,5 @@
 <!-- coachtech-logo for header -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="240px" height="51px" viewBox="0 0 240 51" enable-background="new 0 0 343 51" xml:space="preserve">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="240px" height="51px" viewBox="0 0 240 51" enable-background="new 0 0 343 51" xml:space="preserve" class="hover:opacity-80">
   <image id="image0" width="240" height="51" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVcAAAAzCAAAAAAGSBQ8AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
 AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
 cwAAFiUAABYlAUlSJPAAAAAHdElNRQfnBhECMyqMJDxIAAAGW0lEQVR42u1a3ZnbKBQ9k28LoIMh
