@@ -19,23 +19,37 @@
       </div>
     </div>
 
-    <x-user.button name="購入する" />
-    <h2 class="text-xl font-bold pt-8">商品説明</h2>
-    <p class="pt-4">カラー：グレー</p>
-    <p class="pt-4">新品<br>商品の状態は良好です。傷もありません。</p>
-    <p class="pt-4">購入後、即発送いたします。</p>
-    <h2 class="text-xl font-bold pt-8">商品の情報</h2>
-    <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4">
-      <tr>
-        <th class="w-2/5">カテゴリー</th>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">洋服</td>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
-      </tr>
-      <tr>
-        <th>商品の状態</th>
-        <td>良好</td>
-      </tr>
-    </table>
+    <div class="mt-4 w-full">
+      <p class="flex items-end">
+        <img class="w-8 h-8 rounded-full mr-4" src="{{ asset('storage/img/person.png') }}">
+        山田太郎
+      </p>
+      <input class="w-full my-2 p-2 bg-gray-200 rounded-sm outline-none" value="" readonly>
+    </div>
+
+    <div class="mt-4 w-full">
+      <p class="flex items-end">
+        <img class="w-8 h-8 rounded-full mr-4" src="{{ asset('storage/img/person.png') }}">
+        岩城正美
+      </p>
+      <input class="w-full my-2 p-2 bg-gray-200 rounded-sm outline-none" value="" readonly>
+    </div>
+
+    <div class="mt-4 w-full">
+      <p class="flex items-end">
+        <img class="w-8 h-8 rounded-full mr-4" src="{{ asset('storage/img/person.png') }}">
+        里中悟
+      </p>
+      <input class="w-full my-2 p-2 bg-gray-200 rounded-sm outline-none" value="" readonly>
+    </div>
+
+    <div class="w-full mt-8">
+      <x-user.form-textarea name="comment" labelName="商品へのコメント" />
+    </div>
+
+    <div class="w-full -mt-4">
+      <x-user.button name="コメントを送信する" />
+    </div>
+
   </x-slot>
 </x-user-item-detail>
