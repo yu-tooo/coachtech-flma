@@ -35,4 +35,9 @@ class UserController extends Controller
     {
         return view('user.purchase');
     }
+
+    public function item()
+    {
+        return view('user.item');
+    }
 }

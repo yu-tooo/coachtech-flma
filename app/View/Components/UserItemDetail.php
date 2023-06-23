@@ -23,10 +23,6 @@ class UserItemDetail extends Component
      */
     public function render()
     {
-        return <<<'blade'
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-</div>
-blade;
+        return view('layouts.user.item-detail');
     }
 }
