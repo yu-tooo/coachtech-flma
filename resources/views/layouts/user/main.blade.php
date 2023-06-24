@@ -19,7 +19,7 @@
 <body>
   <x-user.menu-header />
 
-  <div class="py-8">
+  <div x-data="{ isSecond: false }">
     {{ $slot }}
   </div>
 

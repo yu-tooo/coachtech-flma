@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/login', [UserController::class, 'login'])
 ->name('user.login');
@@ -44,6 +44,9 @@ Route::get('/item/comment', [UserController::class, 'comment'])
 
 Route::get('/mypage', [UserController::class, 'mypage'])
 ->name('user.mypage');
+
+Route::get('/', [UserController::class, 'index'])
+->name('user.home');
 // Route::get/('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

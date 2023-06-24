@@ -50,4 +50,9 @@ class UserController extends Controller
     {
         return view('user.mypage');
     }
+
+    public function index()
+    {
+        return view(('user.index'));
+    }
 }
