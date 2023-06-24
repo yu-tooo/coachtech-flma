@@ -20,7 +20,7 @@
 
 
     <!-- 出品商品 -->
-    <div class="grid mt-8 gap-8 px-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:gap-16 lg:px-32" :class="{'hidden': isSecond }">
+    <div x-show="! isSecond" class="grid mt-8 gap-8 px-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:gap-16 lg:px-32">
       <div class="border-2 max-w-xs mx-auto">
         <img src="{{ asset('storage/img/exhibit.png') }}">
       </div>
@@ -52,7 +52,7 @@
 
 
     <!-- 購入商品 -->
-    <div class="grid mt-8 gap-8 px-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:gap-16 lg:px-32" :class="{'hidden': ! isSecond }">
+    <div x-show="isSecond" class="grid mt-8 gap-8 px-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:gap-16 lg:px-32">
       <div class="border-2 max-w-xs mx-auto">
         <img src="{{ asset('storage/img/purchase.png') }}">
       </div>
