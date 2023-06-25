@@ -2,6 +2,8 @@
 
 // use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\RegisteredUserController;
+use App\Http\Controllers\User\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,38 +17,51 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/login', [UserController::class, 'login'])
-->name('user.login');
-Route::get('/register', [UserController::class, 'register'])
-->name('user.register');
-
-Route::get('/purchase/address', [UserController::class, 'address'])
-->name('user.address');
-
-Route::get('/sell', [UserController::class, 'sell'])
-->name('user.sell');
-
-Route::get('/mypage/profile', [UserController::class, 'profile'])
-->name('user.profile');
-
-Route::get('/purchase', [UserController::class, 'purchase'])
-->name('user.purchase');
+Route::get('/', [UserController::class, 'index'])
+->name('home');
 
 Route::get('/item', [UserController::class, 'item'])
-->name('user.item');
+->name('item');
 
-Route::get('/item/comment', [UserController::class, 'comment'])
-->name('user.comment');
 
-Route::get('/mypage', [UserController::class, 'mypage'])
-->name('user.mypage');
+Route::middleware('guest')->group(function () {
+  Route::get('register', [RegisteredUserController::class, 'create'])
+  ->name('register');
 
-Route::get('/', [UserController::class, 'index'])
-->name('user.home');
+  Route::post('register', [RegisteredUserController::class, 'store']);
+
+  Route::get('login', [AuthenticatedSessionController::class, 'create'])
+  ->name('login');
+
+  Route::post('login', [AuthenticatedSessionController::class, 'store']);
+});
+
+
+Route::middleware('auth:users')->group(function () {
+  Route::get('/item/comment', [UserController::class, 'comment'])
+  ->name('comment');
+
+  Route::get('/purchase', [UserController::class, 'purchase'])
+  ->name('purchase');
+
+  Route::get('/purchase/address', [UserController::class, 'address'])
+  ->name('address');
+
+  Route::get('/sell', [UserController::class, 'sell'])
+  ->name('sell');
+
+  Route::get('/mypage', [UserController::class, 'mypage'])
+  ->name('mypage');
+
+  Route::get('/mypage/profile', [UserController::class, 'profile'])
+  ->name('profile');
+
+  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+  ->name('logout');
+});
+
+
+
 // Route::get/('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

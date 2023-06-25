@@ -1,7 +1,7 @@
 <x-user-catalog>
   <div class="w-full border-b-2 border-gray-400 mt-8 px-8 py-2 md:px-16 lg:px-32">
-    <button @click="isSecond = false" class="mx-4 font-bold outline-none" :class="{'text-red-500': ! isSecond }">出品した商品</button>
-    <button @click="isSecond = true" class="mx-4 font-bold outline-none" :class="{'text-red-500': isSecond }">購入した商品</button>
+    <button @click="isSecond = false" class="mx-4 font-bold outline-none" :class="{'text-red-500': ! isSecond }">おすすめ</button>
+    <button @click="isSecond = true" class="mx-4 font-bold outline-none" :class="{'text-red-500': isSecond }">マイリスト</button>
   </div>
 
 

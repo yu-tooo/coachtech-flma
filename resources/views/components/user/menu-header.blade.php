@@ -10,9 +10,16 @@
       <input class="h-8 rounded-sm w-full border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
     </div>
     <div class="hidden md:block">
-      <button class="text-white outline-none hover:underline mr-2">ログイン</button>
-      <button class="text-white outline-none hover:underline mr-4">会員登録</button>
-      <button class="outline-none bg-white px-4 py-0.5 mr-2 font-medium rounded-sm  border border-white hover:text-white hover:bg-black">出品</button>
+      <form class="inline-block mr-2" method="POST" action="{{ route('user.logout') }}">
+        @csrf
+        <button class="text-white outline-none hover:underline">ログアウト</button>
+      </form>
+      <form class="inline-block mr-4" action="{{ route('user.mypage') }}">
+        <button class="text-white outline-none hover:underline">マイページ</button>
+      </form>
+      <form class="inline-block mr-2" action="{{ route('user.sell') }}">
+        <button class="outline-none bg-white px-4 py-0.5 font-medium rounded-sm  border border-white hover:text-white hover:bg-black">出品</button>
+      </form>
     </div>
 
     <button @click="open = ! open" class="md:hidden h-6 w-8 cursor-pointer outline-none">
@@ -28,13 +35,19 @@
         <input class="h-8 w-3/5 rounded-sm border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
       </li>
       <li class="py-4 border-t border-dashed border-white">
-        <button class="text-white outline-none hover:underline">ログイン</button>
+        <form method="POST" action="{{ route('user.logout') }}">
+          <button class="text-white outline-none hover:underline">ログアウト</button>
+        </form>
       </li>
       <li class="py-4 border-t border-dashed border-white">
-        <button class="text-white outline-none hover:underline">会員登録</button>
+        <form action="{{ route('user.mypage') }}">
+          <button class="text-white outline-none hover:underline">マイページ</button>
+        </form>
       </li>
       <li class="py-4 border-t border-dashed">
-        <button class="w-3/5 py-2 text-white outline-none border border-white font-bold hover:bg-white hover:text-black">出品</button>
+        <form action="{{ route('user.sell') }}">
+          <button class="w-3/5 py-2 text-white outline-none border border-white font-bold hover:bg-white hover:text-black">出品</button>
+        </form>
       </li>
     </ul>
   </div>
