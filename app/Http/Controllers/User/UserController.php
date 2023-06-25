@@ -7,16 +7,6 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function login() 
-    {
-        return view('user.login');
-    }
-
-    public function register()
-    {
-        return view('user.register');
-    }
-
     public function address()
     {
         return view('user.address');
