@@ -27,11 +27,6 @@ class UserController extends Controller
         return view('user.purchase');
     }
 
-    public function item()
-    {
-        return view('user.item');
-    }
-
     public function comment()
     {
         return view('user.comment');
@@ -40,10 +35,5 @@ class UserController extends Controller
     public function mypage()
     {
         return view('user.mypage');
-    }
-
-    public function index()
-    {
-        return view(('user.index'));
     }
 }

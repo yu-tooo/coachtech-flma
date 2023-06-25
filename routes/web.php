@@ -1,6 +1,7 @@
 <?php
 
 // use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ItemController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\RegisteredUserController;
 use App\Http\Controllers\User\AuthenticatedSessionController;
@@ -17,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])
+Route::get('/', [ItemController::class, 'index'])
 ->name('home');
 
-Route::get('/item', [UserController::class, 'item'])
+Route::get('/item', [ItemController::class, 'detail'])
 ->name('item');
 
 
