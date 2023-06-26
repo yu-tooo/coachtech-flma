@@ -19,4 +19,14 @@ class ItemController extends Controller
         $isAuth = Auth::guard('users')->check();
         return view('user.item', ['isAuth' => $isAuth]);
     }
+
+    public function sellView()
+    {
+        return view('user.sell');
+    }
+
+    public function sellCreate()
+    {
+        dd('item.post');
+    }
 }

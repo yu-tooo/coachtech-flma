@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    //
+    public function create()
+    {
+        dd('like');
+    }
+
+    public function destroy()
+    {
+        dd('unlike');
+    }
 }

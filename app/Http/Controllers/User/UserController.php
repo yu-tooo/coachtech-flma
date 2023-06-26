@@ -7,14 +7,9 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function address()
+    public function mypage()
     {
-        return view('user.address');
-    }
-
-    public function sell() 
-    {
-        return view('user.sell');
+        return view('user.mypage');
     }
 
     public function profile()
@@ -22,18 +17,9 @@ class UserController extends Controller
         return view('user.reprofile');
     }
 
-    public function purchase()
+    public function updateProfile()
     {
-        return view('user.purchase');
+        dd('profile.post');
     }
 
-    public function comment()
-    {
-        return view('user.comment');
-    }
-
-    public function mypage()
-    {
-        return view('user.mypage');
-    }
 }
