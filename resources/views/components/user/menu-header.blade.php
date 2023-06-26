@@ -1,3 +1,6 @@
+@props([
+'isAuth' => true
+])
 <div x-data="{ open: false }">
   <nav class="relative w-full flex items-center justify-between px-4 h-12 bg-black z-50">
     <div class="flex items-center">
@@ -10,6 +13,7 @@
       <input class="h-8 rounded-sm w-full border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
     </div>
     <div class="hidden md:block">
+      @if($isAuth)
       <form class="inline-block mr-2" method="POST" action="{{ route('user.logout') }}">
         @csrf
         <button class="text-white outline-none hover:underline">ログアウト</button>
@@ -17,6 +21,14 @@
       <form class="inline-block mr-4" action="{{ route('user.mypage') }}">
         <button class="text-white outline-none hover:underline">マイページ</button>
       </form>
+      @else
+      <form class="inline-block mr-2" action="{{ route('user.login') }}">
+        <button class="text-white outline-none hover:underline">ログイン</button>
+      </form>
+      <form class="inline-block mr-4" action="{{ route('user.register') }}">
+        <button class="text-white outline-none hover:underline">会員登録</button>
+      </form>
+      @endif
       <form class="inline-block mr-2" action="{{ route('user.sell') }}">
         <button class="outline-none bg-white px-4 py-0.5 font-medium rounded-sm  border border-white hover:text-white hover:bg-black">出品</button>
       </form>
@@ -34,8 +46,10 @@
       <li class="py-4">
         <input class="h-8 w-3/5 rounded-sm border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
       </li>
+      @if($isAuth)
       <li class="py-4 border-t border-dashed border-white">
         <form method="POST" action="{{ route('user.logout') }}">
+          @csrf
           <button class="text-white outline-none hover:underline">ログアウト</button>
         </form>
       </li>
@@ -44,6 +58,18 @@
           <button class="text-white outline-none hover:underline">マイページ</button>
         </form>
       </li>
+      @else
+      <li class="py-4 border-t border-dashed border-white">
+        <form action="{{ route('user.login') }}">
+          <button class="text-white outline-none hover:underline">ログアウト</button>
+        </form>
+      </li>
+      <li class="py-4 border-t border-dashed border-white">
+        <form action="{{ route('user.register') }}">
+          <button class="text-white outline-none hover:underline">会員登録</button>
+        </form>
+      </li>
+      @endif
       <li class="py-4 border-t border-dashed">
         <form action="{{ route('user.sell') }}">
           <button class="w-3/5 py-2 text-white outline-none border border-white font-bold hover:bg-white hover:text-black">出品</button>

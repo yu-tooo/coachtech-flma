@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <x-user.menu-header />
+  <x-user.menu-header :isAuth="$isAuth"/>
 
   <div x-data="{ isSecond: false }">
     {{ $slot }}
