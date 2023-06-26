@@ -21,8 +21,6 @@ class ProfileSeeder extends Seeder
             $param['img_url'] = 'users/person'. $i. '.png';
             $param['postcode'] = strval(mt_rand(100, 999)). '-'. strval(mt_rand(1000, 9999));
             $param['address'] = "東京都港区台場2-4-". $i;
-            $param['building'] = chr(mt_rand(97, 122)) . chr(mt_rand(97, 122)) . chr(mt_rand(97, 122)) . chr(mt_rand(97, 122)) . chr(mt_rand(97, 122)) . chr(mt_rand(97, 122));
-
             Profile::create($param);
         }
     }

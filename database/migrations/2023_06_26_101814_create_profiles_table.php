@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('img_url', 255)->default('default.png');
             $table->string('postcode', 255);
             $table->string('address', 255);
-            $table->string('building', 255);
+            $table->string('building', 255)->nullable();
             $table->timestamps();
         });
     }
