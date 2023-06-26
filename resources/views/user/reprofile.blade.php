@@ -3,7 +3,10 @@
 
   <form class="w-full" method="POST" action="{{ route('user.profile') }}">
     @csrf
-    <x-user.form-group name="image" labelName="人物画像" placeholder="要変更！" />
+    <div class="flex gap-x-12 items-center mb-8">
+      <img class="w-32 h-32 rounded-full" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
+      <x-user.form-file message="画像を選択する" name="image"/> 
+    </div>
 
     <x-user.form-group name="name" labelName="ユーザー名" value="{{ $user->name }}" />
     <x-user.form-group name="postcode" labelName="郵便番号" pattern="\d{3}-\d{4}" value="{{ $user->profile->getPostCode() }}" />

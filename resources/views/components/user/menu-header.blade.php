@@ -28,7 +28,7 @@
       </form>
       @endguest
       <form class="inline-block mr-2" action="{{ route('user.sell') }}">
-        <button class="outline-none bg-white px-4 py-0.5 font-medium rounded-sm  border border-white hover:text-white hover:bg-black">出品</button>
+        <button class="outline-none bg-white px-4 py-0.5 font-medium rounded-sm  border border-white hover:text-white hover:bg-black duration-500">出品</button>
       </form>
     </div>
 
