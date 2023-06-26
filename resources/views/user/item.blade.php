@@ -1,4 +1,4 @@
-<x-user-item-detail :isAuth="$isAuth">
+<x-user-item-detail>
   <x-slot name="first">
     <img class="block mx-auto w-96" src="{{ asset('/storage/img/sample.png') }}" alt="画像が見つかりません">
   </x-slot>

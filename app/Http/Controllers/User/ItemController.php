@@ -10,14 +10,12 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $isAuth = Auth::guard('users')->check();
-        return view('user.index', ['isAuth' => $isAuth]);
+        return view('user.index');
     }
     
     public function detail()
     {
-        $isAuth = Auth::guard('users')->check();
-        return view('user.item', ['isAuth' => $isAuth]);
+        return view('user.item');
     }
 
     public function sellView()

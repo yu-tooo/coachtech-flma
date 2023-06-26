@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <x-user.menu-header :isAuth="$isAuth" />
+  <x-user.menu-header />
 
   <div class="sm:flex sm:justify-between p-4 sm:p-8 md:p-12 ">
     <div class="sm:w-2/5 md:w-1/2 mb-8 sm:mb-0">{{ $first }}</div>
