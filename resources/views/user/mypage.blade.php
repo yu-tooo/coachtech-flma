@@ -1,6 +1,7 @@
 <x-user-catalog>
   <div class="my-8 lg:px-32">
     <div class="flex flex-col justify-between items-center sm:flex-row">
+
       <div class="flex flex-col items-center sm:ml-32 md:flex-row">
         <img class="w-24 h-24 rounded-full" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
         <p class="text-xl font-extrabold mt-2 md:mt-0 md:translate-x-8 md:-translate-y-2">
@@ -11,9 +12,13 @@
           @endif
         </p>
       </div>
+
       <div class="mt-4 w-48 sm:mt-0 sm:mr-24">
-        <x-user.edit-button name="プロフィールを編集" />
+        <form action="{{ route('user.profile') }}">
+          <x-user.edit-button name="プロフィールを編集" />
+        </form>
       </div>
+
     </div>
   </div>
 

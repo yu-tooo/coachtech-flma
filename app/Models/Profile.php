@@ -21,4 +21,19 @@ class Profile extends Model
     {
         return $this->img_url ?? 'default.png';
     }
+
+    public function getPostCode()
+    {
+        return $this->postcode;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    public function getBuilding()
+    {
+        return $this->building;
+    }
 }
