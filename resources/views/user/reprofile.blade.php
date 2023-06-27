@@ -4,7 +4,7 @@
   <form class="w-full" method="POST" action="{{ route('user.profile') }}" enctype="multipart/form-data">
     @csrf
     <div class="flex gap-x-12 items-center mb-8">
-      <img class="w-32 h-32 rounded-full" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
+      <img class="w-32 h-32 rounded-full object-cover" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
       <x-user.form-file message="画像を選択する" name="image" />
     </div>
 

@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-between items-center sm:flex-row">
 
       <div class="flex flex-col items-center sm:ml-32 md:flex-row">
-        <img class="w-24 h-24 rounded-full" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
+        <img class="w-24 h-24 rounded-full object-cover" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
         <p class="text-xl font-extrabold mt-2 md:mt-0 md:translate-x-8 md:-translate-y-2">
           @if($user->name)
           {{ $user->name }}
