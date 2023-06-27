@@ -1,11 +1,11 @@
 <x-user-detail>
   <h1 class="mb-8 text-2xl font-extrabold">プロフィール設定</h1>
 
-  <form class="w-full" method="POST" action="{{ route('user.profile') }}">
+  <form class="w-full" method="POST" action="{{ route('user.profile') }}" enctype="multipart/form-data">
     @csrf
     <div class="flex gap-x-12 items-center mb-8">
       <img class="w-32 h-32 rounded-full" src="{{ asset('storage/image/'. $user->profile->getUrl()) }}">
-      <x-user.form-file message="画像を選択する" name="image"/> 
+      <x-user.form-file message="画像を選択する" name="image" />
     </div>
 
     <x-user.form-group name="name" labelName="ユーザー名" value="{{ $user->name }}" />
