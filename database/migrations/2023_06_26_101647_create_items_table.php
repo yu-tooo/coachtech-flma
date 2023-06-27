@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('img_url', 255);
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_good');
+            $table->unsignedBigInteger('category_item_id');
             $table->unsignedBigInteger('condition_id');
             $table->timestamps();
         });
