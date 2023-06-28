@@ -12,8 +12,18 @@ class ItemController extends Controller
     public function index()
     {
         $user_id = Auth::guard('users')->id();
+
         $items = Item::where('user_id', '!=', $user_id)->get();
-        return view('user.index', [ 'items' => $items]);
+        $likedItems = Item::whereHas('likes', function($query) use($user_id) {
+            $query->where('user_id', $user_id);
+        })->get();
+        
+        $data = [
+            'items' => $items,
+            'l_items' => $likedItems
+        ];
+
+        return view('user.index', $data);
     }
     
     public function detail($item_id)
