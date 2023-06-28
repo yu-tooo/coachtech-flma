@@ -14,7 +14,8 @@ class ItemController extends Controller
         $user_id = Auth::guard('users')->id();
 
         $items = Item::where('user_id', '!=', $user_id)->get();
-        $likedItems = Item::whereHas('likes', function($query) use($user_id) {
+        $likedItems = Item::where('user_id', '!=', $user_id)->
+        whereHas('likes', function($query) use($user_id) {
             $query->where('user_id', $user_id);
         })->get();
         

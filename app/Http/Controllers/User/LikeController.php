@@ -3,17 +3,25 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Like;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    public function create()
+    public function create($item_id)
     {
-        dd('like');
+        Like::create([
+            'user_id' => Auth::guard('users')->id(),
+            'item_id' => $item_id
+        ]);
+        return back();
     }
 
-    public function destroy()
+    public function destroy($item_id)
     {
-        dd('unlike');
+        Like::where('user_id', Auth::guard('users')->id())
+        ->where('item_id', $item_id)->delete();
+        return back();
     }
 }

@@ -39,10 +39,10 @@ Route::middleware('auth:users')->group(function () {
 
   Route::post('/item/comment/{item_id}', [CommentController::class, 'create']);
   
-  Route::post('/item/like', [LikeController::class, 'create'])
+  Route::post('/item/like/{item_id}', [LikeController::class, 'create'])
   ->name('like');
 
-  Route::post('/item/unlike', [LikeController::class, 'destroy'])
+  Route::post('/item/unlike/{item_id}', [LikeController::class, 'destroy'])
   ->name('unlike');
 
   Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'address'])

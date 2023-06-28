@@ -9,7 +9,17 @@
 
     <div class="flex my-2">
       <div class="flex flex-col items-center mr-6">
-        <x-star-icon />
+        @if($item->like->isLike(Auth::guard('users')->id(), $item->id))
+        <form method="POST" action="{{ route('user.unlike', ['item_id' => $item->id]) }}">
+          @csrf
+          <button><x-star-icon class="stroke-yellow-500 fill-yellow-400" /></button>
+        </form>
+        @else
+        <form method="POST" action="{{ route('user.like', ['item_id' => $item->id]) }}">
+          @csrf
+          <button><x-star-icon class="stroke-yellow-500" /></button>
+        </form>
+        @endif
         <p class="text-center">{{ $item->like->getCount($item->id) }}</p>
       </div>
       <div class="flex flex-col items-center">
