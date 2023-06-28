@@ -10,7 +10,7 @@
 
     <div class="flex my-2">
       <div class="flex flex-col items-center mr-6">
-        <x-star-icon />
+        <x-star-icon class="stroke-yellow-500 fill-yellow-400" />
         <p class="text-center">{{ $item->like->getCount($item->id) }}</p>
       </div>
       <div class="flex flex-col items-center">
