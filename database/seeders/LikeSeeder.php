@@ -17,7 +17,7 @@ class LikeSeeder extends Seeder
     {
         for ($i = 1; $i <= 7; $i++) {
             $param = [];
-            $param['user_id'] = ($i % 5) + 1;
+            $param['user_id'] = 6 - (($i % 5) + 1);
             $param['item_id'] = $i;
             Like::create($param);
         }
