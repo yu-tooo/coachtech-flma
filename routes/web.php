@@ -50,15 +50,15 @@ Route::middleware('auth:users')->group(function () {
   Route::post('/item/unlike', [LikeController::class, 'destroy'])
   ->name('unlike');
 
+  Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'address'])
+  ->name('address');
+
+  Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updateAddress']);
+
   Route::get('/purchase/{item_id}', [PurchaseController::class, 'index'])
   ->name('purchase');
 
   Route::post('/purchase/{item_id}', [PurchaseController::class, 'purchase']);
-
-  Route::get('/purchase/address', [PurchaseController::class, 'address'])
-  ->name('address');
-
-  Route::post('/purchase/address', [PurchaseController::class, 'updateAddress']);
 
   Route::get('/sell', [ItemController::class, 'sellView'])
   ->name('sell');

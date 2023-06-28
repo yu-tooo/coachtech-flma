@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -19,13 +21,24 @@ class PurchaseController extends Controller
         dd('purchase.post');
     }
 
-    public function address()
+    public function address($item_id)
     {
-        return view('user.address');
+        $user = Profile::where('user_id', Auth::guard('users')->id())->first();
+        $data = [
+            'user' => $user,
+            'item_id' => $item_id
+        ];
+        return view('user.address', ['data' => $data]);
     }
 
-    public function updateAddress()
+    public function updateAddress(Request $request, $item_id)
     {
-        dd('purchase/address.post');
+        Profile::where('user_id', Auth::guard('users')->id())
+        ->update([
+            'postcode' => $request->postcode,
+            'address' => $request->address,
+            'building' => $request->building
+        ]);
+        return redirect(route('user.purchase', ['item_id' => $item_id]));
     }
 }

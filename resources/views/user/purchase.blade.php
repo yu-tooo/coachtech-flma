@@ -13,7 +13,7 @@
     </div>
     <div class="flex justify-between mt-8">
       <h2 class="font-bold">配送先</h2>
-      <p><a class="text-blue-500" href="#">変更する</a></p>
+      <p><a class="text-blue-500" href="{{ route('user.address', ['item_id' => $item->id]) }}">変更する</a></p>
     </div>
   </x-slot>
 
