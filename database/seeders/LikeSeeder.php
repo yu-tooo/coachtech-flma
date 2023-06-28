@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Like;
 use Illuminate\Database\Seeder;
 
 class LikeSeeder extends Seeder
@@ -18,6 +19,7 @@ class LikeSeeder extends Seeder
             $param = [];
             $param['user_id'] = ($i % 5) + 1;
             $param['item_id'] = $i;
+            Like::create($param);
         }
     }
 }
