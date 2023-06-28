@@ -1,32 +1,30 @@
 <x-user-item-detail>
   <x-slot name="first">
-    <img class="block mx-auto w-96" src="{{ asset('/storage/img/sample.png') }}" alt="画像が見つかりません">
+    <img class="mx-auto w-96 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}" alt="画像が見つかりません">
   </x-slot>
 
   <x-slot name="second">
-    <h1 class="text-2xl font-extrabold">商品名</h1>
-    <p>ブランド名</p>
-    <h3 class="text-lg my-2">￥47,000(値段)</h3>
+    <h1 class="text-2xl font-extrabold">{{ $item->name }}</h1>
 
-    <div class="flex px-2 my-2">
-      <div class="flex flex-col items-center mx-4">
+    <h3 class="text-lg my-2">￥{{ number_format($item->price) }}(値段)</h3>
+
+    <div class="flex my-2">
+      <div class="flex flex-col items-center mr-6">
         <x-star-icon />
         <p>3</p>
       </div>
-      <div class="flex flex-col items-center mx-4">
+      <div class="flex flex-col items-center">
         <x-bubble-icon />
         <p>14</p>
       </div>
     </div>
 
-    <div class="w-full mt-4">
+    <form class="w-full mt-4" action="{{ route('user.purchase') }}">
       <x-user.button name="購入する" />
-    </div>
+    </form>
 
     <h2 class="text-xl font-bold pt-8">商品説明</h2>
-    <p class="pt-4">カラー：グレー</p>
-    <p class="pt-4">新品<br>商品の状態は良好です。傷もありません。</p>
-    <p class="pt-4">購入後、即発送いたします。</p>
+    <p>{{ $item->description }}</p>
     <h2 class="text-xl font-bold pt-8">商品の情報</h2>
     <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4">
       <tr>

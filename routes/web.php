@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ItemController::class, 'index'])
 ->name('home');
 
+Route::get('/item/{id}', [ItemController::class, 'detail'])
+  ->name('item');
+
+
 Route::middleware('guest:users')->group(function () {
   Route::get('register', [RegisteredUserController::class, 'create'])
   ->name('register');
@@ -35,8 +39,6 @@ Route::middleware('guest:users')->group(function () {
   Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
 
-Route::get('/item', [ItemController::class, 'detail'])
-->name('item');
 
 Route::middleware('auth:users')->group(function () {
   Route::post('/item/comment', [CommentController::class, 'comment'])
