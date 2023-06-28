@@ -26,9 +26,9 @@ class ItemSeeder extends Seeder
             $param['price'] = $price[$i];
             $param['description'] = $names[$i]. 'です。'. $price[$i]. '円で販売いたします。';
             $param['img_url'] = 'items/item'. strval($i + 1). '.jpg';
-            $param['user_id'] = ($i + 1) % 5;
-            $param['category_item_id'] = ($i + 1) % 4;
-            $param['condition_id'] = ($i + 1) % 3;
+            $param['user_id'] = ($i + 1) % 5 + 1;
+            $param['category_item_id'] = ($i + 1) % 4 + 1;
+            $param['condition_id'] = ($i + 1) % 3 + 1;
 
             Item::create($param);
         }

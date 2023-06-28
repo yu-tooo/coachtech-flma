@@ -25,34 +25,12 @@
 
 
   <!-- 出品商品 -->
-  <div x-show="! isSecond" class="grid my-8 gap-8 px-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:gap-16 lg:px-32">
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
-    <div class="border-2 max-w-xs mx-auto">
-      <img src="{{ asset('storage/image/exhibit.png') }}">
-    </div>
+  <div x-show="! isSecond" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-8 px-12 xl:px-20 py-12">
+    @foreach ($s_items as $item)
+    <a href="{{ route('user.item', ['item_id' => $item->id]) }}">
+      <img class="w-full h-48 shadow-xl object-cover" src="{{ asset('storage/image/'. $item->img_url) }}">
+    </a>
+    @endforeach
   </div>
 
 

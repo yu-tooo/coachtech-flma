@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
-use App\Http\Controllers\Controller;
+use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
     public function mypage()
     {
         $user = Auth::guard('users')->user();
-        return view('user.mypage', ['user' => $user]);
+        $data = [
+            'user' => $user,
+            's_items' => Item::where('user_id', $user->id)->get()
+        ];
+        return view('user.mypage', $data);
     }
 
     public function profile()

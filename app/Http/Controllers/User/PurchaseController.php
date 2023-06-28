@@ -28,7 +28,7 @@ class PurchaseController extends Controller
             'user' => $user,
             'item_id' => $item_id
         ];
-        return view('user.address', ['data' => $data]);
+        return view('user.address', $data);
     }
 
     public function updateAddress(Request $request, $item_id)
