@@ -14,6 +14,11 @@ class Like extends Model
         'item_id'
     ];
 
+    public function isLike($user_id, $item_id)
+    {
+        return $this->where('user_id', $user_id)->where('item_id', $item_id)->exists();
+    }
+
     public function getCount($item_id)
     {
         return $this->where('item_id', $item_id)->count();

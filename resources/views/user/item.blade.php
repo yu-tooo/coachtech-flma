@@ -10,7 +10,11 @@
 
     <div class="flex my-2">
       <div class="flex flex-col items-center mr-6">
+        @if($item->like->isLike(Auth::guard('users')->id(), $item->id))
         <x-star-icon class="stroke-yellow-500 fill-yellow-400" />
+        @else
+        <x-star-icon class="stroke-yellow-500" />
+        @endif
         <p class="text-center">{{ $item->like->getCount($item->id) }}</p>
       </div>
       <div class="flex flex-col items-center">
