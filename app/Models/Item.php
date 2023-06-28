@@ -16,6 +16,11 @@ class Item extends Model
         return $this->hasMany('App\Models\Like');
     }
 
+    public function like()
+    {
+        return $this->hasOne('App\Models\Like')->withDefault();
+    }
+
     public function comment()
     {
         return $this->hasOne('App\Models\Comment')->withDefault();

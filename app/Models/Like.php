@@ -13,4 +13,9 @@ class Like extends Model
         'user_id',
         'item_id'
     ];
+
+    public function getCount($item_id)
+    {
+        return $this->where('item_id', $item_id)->count();
+    }
 }
