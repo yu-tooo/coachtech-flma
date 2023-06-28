@@ -14,8 +14,10 @@
         <p>3</p>
       </div>
       <div class="flex flex-col items-center">
-        <x-bubble-icon />
-        <p>14</p>
+        <a href="{{ route('user.comment', ['item_id' => $item->id]) }}">
+          <x-bubble-icon />
+          <p>14</p>
+        </a>
       </div>
     </div>
 
@@ -26,17 +28,17 @@
     <h2 class="text-xl font-bold pt-8">商品説明</h2>
     <p>{{ $item->description }}</p>
     <h2 class=" text-xl font-bold pt-8">商品の情報</h2>
-      <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4">
-        <tr>
-          <th class="w-2/5">カテゴリー</th>
-          <td class="bg-gray-300 text-sm rounded-2xl px-2">洋服</td>
-          <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
-          <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
-        </tr>
-        <tr>
-          <th>商品の状態</th>
-          <td>良好</td>
-        </tr>
-      </table>
+    <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4">
+      <tr>
+        <th class="w-2/5">カテゴリー</th>
+        <td class="bg-gray-300 text-sm rounded-2xl px-2">洋服</td>
+        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
+        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
+      </tr>
+      <tr>
+        <th>商品の状態</th>
+        <td>良好</td>
+      </tr>
+    </table>
   </x-slot>
 </x-user-item-detail>

@@ -20,13 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ItemController::class, 'index'])
-->name('home');
-
-Route::get('/item/{item_id}', [ItemController::class, 'detail'])
-  ->name('item');
-
-
 Route::middleware('guest:users')->group(function () {
   Route::get('register', [RegisteredUserController::class, 'create'])
   ->name('register');
@@ -41,9 +34,11 @@ Route::middleware('guest:users')->group(function () {
 
 
 Route::middleware('auth:users')->group(function () {
-  Route::post('/item/comment', [CommentController::class, 'comment'])
+  Route::get('/item/comment/{item_id}', [CommentController::class, 'index'])
   ->name('comment');
 
+  Route::post('/item/comment/{item_id}', [CommentController::class, 'create']);
+  
   Route::post('/item/like', [LikeController::class, 'create'])
   ->name('like');
 
@@ -77,4 +72,8 @@ Route::middleware('auth:users')->group(function () {
   ->name('logout');
 });
 
+Route::get('/', [ItemController::class, 'index'])
+  ->name('home');
 
+Route::get('/item/{item_id}', [ItemController::class, 'detail'])
+  ->name('item');

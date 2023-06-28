@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class)->withDefault();
     }
+
+    public function getName() 
+    {
+        return $this->name;
+    }
 }
