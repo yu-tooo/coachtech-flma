@@ -15,21 +15,21 @@
         @csrf
         <button class="text-white outline-none hover:underline">ログアウト</button>
       </form>
-      <form class="inline-block mr-4" action="{{ route('user.mypage') }}">
+      <a class="inline-block mr-4" href="{{ route('user.mypage') }}">
         <button class="text-white outline-none hover:underline">マイページ</button>
-      </form>
+      </a>
       @endauth
       @guest('users')
-      <form class="inline-block mr-2" action="{{ route('user.login') }}">
+      <a class="inline-block mr-4" href="{{ route('user.login') }}">
         <button class="text-white outline-none hover:underline">ログイン</button>
-      </form>
-      <form class="inline-block mr-4" action="{{ route('user.register') }}">
+      </a>
+      <a class="inline-block mr-4" href="{{ route('user.register') }}">
         <button class="text-white outline-none hover:underline">会員登録</button>
-      </form>
+      </a>
       @endguest
-      <form class="inline-block mr-2" action="{{ route('user.sell') }}">
+      <a class="inline-block mr-2" href="{{ route('user.sell') }}">
         <button class="outline-none bg-white px-4 py-0.5 font-medium rounded-sm  border border-white hover:text-white hover:bg-black duration-500">出品</button>
-      </form>
+      </a>
     </div>
 
     <button @click="open = ! open" class="md:hidden h-6 w-8 cursor-pointer outline-none">
@@ -45,34 +45,26 @@
         <input class="h-8 w-3/5 rounded-sm border-transparent focus:border-transparent focus:ring-0" type="text" placeholder="何をお探しですか？">
       </li>
       @auth('users')
-      <li class="py-4 border-t border-dashed border-white">
-        <form method="POST" action="{{ route('user.logout') }}">
-          @csrf
-          <button class="text-white outline-none hover:underline">ログアウト</button>
-        </form>
-      </li>
-      <li class="py-4 border-t border-dashed border-white">
-        <form action="{{ route('user.mypage') }}">
-          <button class="text-white outline-none hover:underline">マイページ</button>
-        </form>
-      </li>
+      <form class="block text-md my-4" method="POST" action="{{ route('user.logout') }}">
+        @csrf
+        <button class="text-white outline-none hover:underline">ログアウト</button>
+      </form>
+      <a class="block text-md my-4" href=" {{ route('user.mypage') }}">
+        <button class="text-white outline-none hover:underline">マイページ</button>
+      </a>
       @endauth
       @guest('users')
-      <li class="py-4 border-t border-dashed border-white">
-        <form action="{{ route('user.login') }}">
-          <button class="text-white outline-none hover:underline">ログアウト</button>
-        </form>
-      </li>
-      <li class="py-4 border-t border-dashed border-white">
-        <form action="{{ route('user.register') }}">
-          <button class="text-white outline-none hover:underline">会員登録</button>
-        </form>
-      </li>
+      <a class="block text-md my-4" href="{{ route('user.login') }}">
+        <button class="text-white outline-none hover:underline">ログイン</button>
+      </a>
+      <a class="block text-md my-4" href="{{ route('user.register') }}">
+        <button class="text-white outline-none hover:underline">会員登録</button>
+      </a>
       @endguest
       <li class="py-4 border-t border-dashed">
-        <form action="{{ route('user.sell') }}">
+        <a href="{{ route('user.sell') }}">
           <button class="w-3/5 py-2 text-white outline-none border border-white font-bold hover:bg-white hover:text-black">出品</button>
-        </form>
+        </a>
       </li>
     </ul>
   </div>
