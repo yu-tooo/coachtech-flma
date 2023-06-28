@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <form class="w-full mt-4" action="{{ route('user.purchase') }}">
+    <form class="w-full mt-4" action="{{ route('user.purchase', ['item_id' => $item->id]) }}">
       <x-user.button name="購入する" />
     </form>
 

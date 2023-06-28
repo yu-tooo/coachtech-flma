@@ -14,9 +14,9 @@ class ItemController extends Controller
         return view('user.index', [ 'items' => $items]);
     }
     
-    public function detail($id)
+    public function detail($item_id)
     {
-        $item = Item::find($id);
+        $item = Item::find($item_id);
         return view('user.item', ['item' => $item]);
     }
 

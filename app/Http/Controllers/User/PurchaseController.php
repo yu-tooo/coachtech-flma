@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
-    public function index()
+    public function index($item_id)
     {
-        return view('user.purchase');
+        $item = Item::find($item_id);
+        return view('user.purchase', ['item' => $item]);
     }
 
     public function purchase()

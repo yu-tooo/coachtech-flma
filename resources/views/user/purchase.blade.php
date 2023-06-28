@@ -1,10 +1,10 @@
 <x-user-purchase>
   <x-slot name="first">
     <div class="flex">
-      <img class="w-32 mx-4" src="storage/img/sample.png">
+      <img class="w-32 mx-4 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}">
       <div class="p-2 ml-4">
-        <h1 class="pb-4 font-bold text-lg">商品名</h1>
-        <p>￥47,000</p>
+        <h1 class="pb-4 font-bold text-lg">{{ $item->name }}</h1>
+        <p>￥{{ number_format($item->price) }}</p>
       </div>
     </div>
     <div class="flex justify-between mt-8">
@@ -21,11 +21,11 @@
     <table class="w-full border-2 border-gray-300 border-separate border-spacing-y-4">
       <tr>
         <th>商品代金</th>
-        <td>￥47,000</td>
+        <td>￥{{ number_format($item->price) }}</td>
       </tr>
       <tr>
         <th>支払代金</th>
-        <td>￥47,000</td>
+        <td>￥{{ number_format($item->price) }}</td>
       </tr>
       <tr>
         <th>支払い方法</th>

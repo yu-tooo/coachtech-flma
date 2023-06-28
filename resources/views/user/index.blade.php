@@ -7,7 +7,7 @@
   <!-- 出品商品 -->
   <div x-show="! isSecond" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-8 px-12 xl:px-20 py-12">
     @foreach ($items as $item)
-    <a href="{{ route('user.item', ['id' => $item->id]) }}">
+    <a href="{{ route('user.item', ['item_id' => $item->id]) }}">
       <img class="w-full h-48 shadow-xl object-cover" src="{{ asset('storage/image/'. $item->img_url) }}">
     </a>
     @endforeach

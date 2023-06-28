@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ItemController::class, 'index'])
 ->name('home');
 
-Route::get('/item/{id}', [ItemController::class, 'detail'])
+Route::get('/item/{item_id}', [ItemController::class, 'detail'])
   ->name('item');
 
 
@@ -50,10 +50,10 @@ Route::middleware('auth:users')->group(function () {
   Route::post('/item/unlike', [LikeController::class, 'destroy'])
   ->name('unlike');
 
-  Route::get('/purchase', [PurchaseController::class, 'index'])
+  Route::get('/purchase/{item_id}', [PurchaseController::class, 'index'])
   ->name('purchase');
 
-  Route::post('/purchase', [PurchaseController::class, 'purchase']);
+  Route::post('/purchase/{item_id}', [PurchaseController::class, 'purchase']);
 
   Route::get('/purchase/address', [PurchaseController::class, 'address'])
   ->name('address');
