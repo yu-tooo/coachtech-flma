@@ -11,12 +11,12 @@
     <div class="flex my-2">
       <div class="flex flex-col items-center mr-6">
         <x-star-icon />
-        <p>3</p>
+        <p class="text-center">3</p>
       </div>
       <div class="flex flex-col items-center">
         <a href="{{ route('user.comment', ['item_id' => $item->id]) }}">
           <x-bubble-icon />
-          <p>14</p>
+          <p class="text-center">{{ $item->comment->getCount($item->id) }}</p>
         </a>
       </div>
     </div>

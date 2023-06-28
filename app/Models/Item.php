@@ -15,4 +15,9 @@ class Item extends Model
     {
         return $this->hasMany('App\Models\Like');
     }
+
+    public function comment()
+    {
+        return $this->hasOne('App\Models\Comment')->withDefault();
+    }
 }

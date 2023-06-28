@@ -16,8 +16,7 @@ class CommentController extends Controller
             'item' => Item::find($item_id),
             'comments' => Comment::where('item_id', '=', $item_id)
             ->orderBy('updated_at', 'desc')->take(3)
-            ->get(),
-            'total_comments' => Comment::where('item_id', '=', $item_id)->count()
+            ->get()
         ];
 
         return view('user.comment', $data);

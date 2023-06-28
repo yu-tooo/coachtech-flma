@@ -15,7 +15,7 @@
       <div class="flex flex-col items-center">
         <a href="{{ route('user.comment', ['item_id' => $item->id]) }}">
           <x-bubble-icon />
-          <p class="text-center">{{ $total_comments }}</p>
+          <p class="text-center">{{ $item->comment->getCount($item->id) }}</p>
         </a>
       </div>
     </div>
