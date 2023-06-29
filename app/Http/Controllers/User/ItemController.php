@@ -13,24 +13,20 @@ class ItemController extends Controller
     {
         $user_id = Auth::guard('users')->id();
 
-        $items = Item::where('user_id', '!=', $user_id)->get();
-        $likedItems = Item::where('user_id', '!=', $user_id)->
-        whereHas('likes', function($query) use($user_id) {
+        $items = Item::where('user_id', '!=', $user_id)
+        ->doesntHave('sold_items')->get();
+
+        $likedItems = Item::where('user_id', '!=', $user_id)->doesntHave('sold_items')
+        ->whereHas('likes', function($query) use($user_id) {
             $query->where('user_id', $user_id);
         })->get();
         
-        $data = [
-            'items' => $items,
-            'l_items' => $likedItems
-        ];
-
-        return view('user.index', $data);
+        return view('user.index', ['items' => $items, 'l_items' => $likedItems]);
     }
     
     public function detail($item_id)
     {
-        $item = Item::find($item_id);
-        return view('user.item', ['item' => $item]);
+        return view('user.item', ['item' => Item::find($item_id)]);
     }
 
     public function sellView()
