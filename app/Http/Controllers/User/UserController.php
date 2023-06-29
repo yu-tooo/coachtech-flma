@@ -29,8 +29,7 @@ class UserController extends Controller
 
     public function profile()
     {
-        $user = Auth::guard('users')->user();
-        return view('user.reprofile', ['user' => $user]);
+        return view('user.reprofile', ['user' => Auth::guard('users')->user()]);
     }
 
 
