@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Categorie;
+use App\Models\Category_item;
 use App\Models\Comment;
 use App\Models\Profile;
 use Illuminate\Database\Seeder;
@@ -30,6 +32,8 @@ class DatabaseSeeder extends Seeder
             LikeSeeder::class,
             CommentSeeder::class,
             ConditionSeeder::class,
+            Category_itemSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }
