@@ -26,6 +26,7 @@ class ItemController extends Controller
     
     public function detail($item_id)
     {
+        $item = Item::find($item_id);
         return view('user.item', ['item' => Item::find($item_id)]);
     }
 
