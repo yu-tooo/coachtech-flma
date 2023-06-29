@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             ItemSeeder::class,
             LikeSeeder::class,
             CommentSeeder::class,
+            ConditionSeeder::class,
         ]);
     }
 }

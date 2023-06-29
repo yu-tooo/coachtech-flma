@@ -30,4 +30,9 @@ class Item extends Model
     {
         return $this->hasMany('App\Models\Sold_item');
     }
+
+    public function condition()
+    {
+        return $this->belongsTo('App\Models\Condition');
+    }
 }
