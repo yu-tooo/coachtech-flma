@@ -32,8 +32,9 @@
         <td>コンビニ払い</td>
       </tr>
     </table>
-    <div class="w-full mt-8 md:mt-16">
+    <form method="POST" action="{{ route('user.purchase', ['item_id' => $item->id]) }}" class="w-full mt-8 md:mt-16">
+      @csrf
       <x-user.button name="購入する" />
-    </div>
+    </form>
   </x-slot>
 </x-user-purchase>
