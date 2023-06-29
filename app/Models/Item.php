@@ -25,4 +25,9 @@ class Item extends Model
     {
         return $this->hasOne('App\Models\Comment')->withDefault();
     }
+
+    public function sold_items()
+    {
+        return $this->hasMany('App\Models\Sold_item');
+    }
 }

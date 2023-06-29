@@ -15,9 +15,14 @@ class UserController extends Controller
     public function mypage()
     {
         $user = Auth::guard('users')->user();
+        $purchasedItem = Item::whereHas('sold_items', function($query) {
+            $query->where('user_id', Auth::guard('users')->id());
+        });
+
         $data = [
             'user' => $user,
-            's_items' => Item::where('user_id', $user->id)->get()
+            's_items' => Item::where('user_id', $user->id)->get(),
+            'p_items' => $purchasedItem->get()
         ];
         return view('user.mypage', $data);
     }
