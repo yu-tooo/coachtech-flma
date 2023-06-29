@@ -7,8 +7,8 @@
     <h1 class="text-2xl font-extrabold">{{ $item->name }}</h1>
     <h3 class="text-lg my-2">￥{{ number_format($item->price) }}(値段)</h3>
 
-    <div class="flex my-2">
-      <div class="flex flex-col items-center mr-6">
+    <div class="flex gap-x-4">
+      <div>
         @if($item->like->isLike(Auth::guard('users')->id(), $item->id))
         <form method="POST" action="{{ route('user.unlike', ['item_id' => $item->id]) }}">
           @csrf
@@ -20,13 +20,17 @@
           <button><x-star-icon class="stroke-yellow-500" /></button>
         </form>
         @endif
-        <p class="text-center">{{ $item->like->getCount($item->id) }}</p>
+        <p class="text-center">
+          {{ $item->like->getCount($item->id) }}
+        </p>
       </div>
-      <div class="flex flex-col items-center">
+      <div>
         <a href="{{ route('user.comment', ['item_id' => $item->id]) }}">
-          <x-bubble-icon />
-          <p class="text-center">{{ $item->comment->getCount($item->id) }}</p>
+          <button><x-bubble-icon /></button>
         </a>
+        <p class="text-center">
+          {{ $item->comment->getCount($item->id) }}
+        </p>
       </div>
     </div>
 
