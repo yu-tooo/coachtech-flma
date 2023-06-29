@@ -51,7 +51,7 @@
       </tr>
       <tr>
         <th>商品の状態</th>
-        <td>良好</td>
+        <td>{{ $item->condition->getCondition() }}</td>
       </tr>
     </table>
   </x-slot>
