@@ -35,8 +35,8 @@ class ItemController extends Controller
         return view('user.sell');
     }
 
-    public function sellCreate()
+    public function sellCreate(Request $request)
     {
-        dd('item.post');
+        dd($request);
     }
 }
