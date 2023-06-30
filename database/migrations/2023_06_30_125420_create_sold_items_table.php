@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sold_items', function (Blueprint $table) {
+        Schema::create('sold_item', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('item_id');
+            $table->foreignId('item_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sold_items');
+        Schema::dropIfExists('sold_item');
     }
 };

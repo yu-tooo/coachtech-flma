@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('price', 255);
             $table->string('description', 255);
             $table->string('img_url', 255);
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_item_id');
-            $table->unsignedBigInteger('condition_id');
+            $table->foreignId('user_id');
+            $table->foreignId('category_item_id');
+            $table->foreignId('condition_id');
             $table->timestamps();
         });
     }
