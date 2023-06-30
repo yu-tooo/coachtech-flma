@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\Item;
-use App\Models\Sold_item;
+use App\Models\SoldItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -19,9 +19,9 @@ class PurchaseController extends Controller
 
     public function purchase($item_id)
     {
-        Sold_item::create([
-            'user_id' => Auth::guard('users')->id(),
-            'item_id' => $item_id
+        SoldItem::create([
+            'item_id' => $item_id,
+            'user_id' => Auth::guard('users')->id()
         ]);
         return redirect(route('user.mypage'));
     }

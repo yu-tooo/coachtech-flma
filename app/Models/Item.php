@@ -10,15 +10,15 @@ class Item extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-
-    public function likes()
-    {
-        return $this->hasMany('App\Models\Like');
-    }
-
+    
     public function like()
     {
         return $this->hasOne('App\Models\Like')->withDefault();
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function comment()
@@ -28,16 +28,16 @@ class Item extends Model
 
     public function sold_items()
     {
-        return $this->hasMany('App\Models\Sold_item');
+        return $this->hasMany(SoldItem::class);
+    }
+    
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, CategoryItem::class);
     }
 
     public function condition()
     {
-        return $this->belongsTo('App\Models\Condition');
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, CategoryItem::class);
+        return $this->belongsTo(Condition::class);
     }
 }
