@@ -13,7 +13,7 @@ class Item extends Model
     
     public function like()
     {
-        return $this->hasOne('App\Models\Like')->withDefault();
+        return $this->hasOne(Like::class)->withDefault();
     }
 
     public function likes()
@@ -23,7 +23,7 @@ class Item extends Model
 
     public function comment()
     {
-        return $this->hasOne('App\Models\Comment')->withDefault();
+        return $this->hasOne(Comment::class)->withDefault();
     }
 
     public function sold_items()

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
@@ -14,12 +13,7 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->BelongsTo('App\Models\User');
-    }
-
-    public function item()
-    {
-        return $this->BelongsTo('App\Models\Item');
+        return $this->BelongsTo(User::class);
     }
 
     public function getCount($item_id)
