@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             LikeSeeder::class,
             CommentSeeder::class,
             ConditionSeeder::class,
-            Category_itemSeeder::class,
+            CategoryitemSeeder::class,
             CategorySeeder::class,
         ]);
     }

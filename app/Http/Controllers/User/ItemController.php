@@ -26,8 +26,9 @@ class ItemController extends Controller
     
     public function detail($item_id)
     {
-        $item = Item::find($item_id);
-        return view('user.item', ['item' => Item::find($item_id)]);
+        $items = Item::find($item_id);
+        $categories = Item::find($item_id)->categories()->pluck('name')->take(3);
+        return view('user.item', ['item' => $items, 'categories' => $categories]);
     }
 
     public function sellView()

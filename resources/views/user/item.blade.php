@@ -42,16 +42,18 @@
     <h2 class="text-xl font-bold pt-8">商品説明</h2>
     <p>{{ $item->description }}</p>
     <h2 class=" text-xl font-bold pt-8">商品の情報</h2>
-    <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4">
+    <table class="table-fixed border-separate border-spacing-x-1 border-spacing-y-4 w-full lg:w-4/5">
       <tr>
         <th class="w-2/5">カテゴリー</th>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">洋服</td>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
-        <td class="bg-gray-300 text-sm rounded-2xl px-2">メンズ</td>
+        @foreach($categories as $category)
+        <td class="bg-gray-300 text-center w-1/5 text-sm rounded-2xl px-2">
+          {{ $category }}
+        </td>
+        @endforeach
       </tr>
       <tr>
-        <th>商品の状態</th>
-        <td>{{ $item->condition->getCondition() }}</td>
+        <th class="w-2/5">商品の状態</th>
+        <td class="w-1/5 text-center">{{ $item->condition->getCondition() }}</td>
       </tr>
     </table>
   </x-slot>
