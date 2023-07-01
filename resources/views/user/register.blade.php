@@ -5,11 +5,11 @@
     @csrf
 
     <x-user.form-group name="email" labelName="メールアドレス" type="email" />
+    <x-input-error :messages="$errors->get('email')" class="-translate-y-8" />
 
     <x-user.form-group name="password" labelName="パスワード" type="password" />
-
-    <x-input-error :messages="$errors->get('email')" />
-    <x-input-error :messages="$errors->get('password')" />
+    <x-input-error :messages="$errors->get('password')" class="-translate-y-8" />
+    
     <div class="w-full mt-8">
       <x-user.button name="会員登録する" />
     </div>

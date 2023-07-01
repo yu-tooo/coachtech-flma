@@ -11,6 +11,7 @@
       </label>
       <input @change="change" type="file" id="image" class="hidden" name="image">
     </div>
+    <x-input-error :messages="$errors->get('image')" class="-translate-y-12" />
 
     <x-user.partition name="商品の詳細" />
     <div x-data="addInput" class="mb-8">
@@ -18,6 +19,9 @@
         カテゴリー
       </label>
       <input @click="plus = true" type="text" id="category1" class="w-full rounded-md focus:border-black focus:ring-0" name="categories[]">
+      @for($i = 0; $i < 5; $i++)
+      <x-input-error :messages="$errors->get('categories.'. $i)" />
+      @endfor
 
       <div id="addContent" class="hidden">
         <span x-show="plus" @click="add" class="inline-block w-8" id="addBtn"><x-plus-icon /></span>
@@ -32,17 +36,25 @@
     </div>
 
     <x-user.form-group name="condition" labelName="商品の状態" />
+    <x-input-error :messages="$errors->get('condition')" class="-translate-y-8" />
 
     <x-user.partition name="商品名と説明" />
-    <x-user.form-group name="name" labelName="商品名" />
+
+    <x-user.form-group name="productName" labelName="商品名" />
+    <x-input-error :messages="$errors->get('productName')" class="-translate-y-8" />
+
     <x-user.form-textarea name="description" labelName="商品の説明" />
+    <x-input-error :messages="$errors->get('description')" class="-translate-y-8" />
 
     <x-user.partition name="販売価格" />
 
-    <span class="inline-block pb-0.5 translate-x-2 translate-y-16 text-lg">￥</span>
-    <x-user.form-group name="price" labelName="販売価格" class="pl-8" />
+    <x-user.form-group name="price" labelName="販売価格" class="pl-8 mb-0" />
 
-    <div class="w-full mt-8">
+    <span class="inline-block translate-x-2 pt-3 -translate-y-20 text-lg">￥</span>
+    <x-input-error :messages="$errors->get('price')" class="-translate-y-16" />
+
+
+    <div class="w-full -mt-2 mb-8">
       <x-user.button name="出品する" />
     </div>
   </form>

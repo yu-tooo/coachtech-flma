@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Condition;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\User\ItemsRequest;
 
 class ItemController extends Controller
 {
@@ -51,7 +52,7 @@ class ItemController extends Controller
         return view('user.sell');
     }
 
-    public function sellCreate(Request $request)
+    public function sellCreate(ItemsRequest $request)
     {
         $new_img = $request->file('image')->store('public/image/items');
         $img_url = mb_substr($new_img, mb_strpos($new_img, 'items/'));
@@ -68,8 +69,9 @@ class ItemController extends Controller
         
         Condition::create(['condition' => $request->condition]);
         $condition_id = Condition::latest('id')->value('id');
+
         $item =Item::create([
-            'name' => $request->name,
+            'name' => $request->productName,
             'price' => $request->price,
             'description' => $request->description,
             'img_url' => $img_url,
