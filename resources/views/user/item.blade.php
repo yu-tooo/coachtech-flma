@@ -40,7 +40,7 @@
     </a>
 
     <h2 class="text-xl font-bold pt-8">商品説明</h2>
-    <p>{{ $item->description }}</p>
+    <p class="mt-4 whitespace-pre-wrap leading-4">{{ $item->description }}</p>
     <h2 class=" text-xl font-bold pt-8">商品の情報</h2>
 
     <ul class="flex w-full space-x-8 mt-8">

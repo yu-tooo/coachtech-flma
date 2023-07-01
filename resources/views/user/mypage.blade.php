@@ -8,9 +8,9 @@
         </p>
       </div>
       <div class="mt-4 w-48 sm:mt-0 sm:mr-24">
-        <form action="{{ route('user.profile') }}">
+        <a href="{{ route('user.profile') }}">
           <x-user.edit-button name="プロフィールを編集" />
-        </form>
+        </a>
       </div>
     </div>
   </div>
