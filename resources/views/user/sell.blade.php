@@ -19,8 +19,8 @@
         カテゴリー
       </label>
       <input @click="plus = true" type="text" id="category1" class="w-full rounded-md focus:border-black focus:ring-0" name="categories[]">
-      @for($i = 0; $i < 5; $i++)
-      <x-input-error :messages="$errors->get('categories.'. $i)" />
+      @for($i = 0; $i
+      < 5; $i++) <x-input-error :messages="$errors->get('categories.'. $i)" />
       @endfor
 
       <div id="addContent" class="hidden">
@@ -43,7 +43,7 @@
     <x-user.form-group name="productName" labelName="商品名" />
     <x-input-error :messages="$errors->get('productName')" class="-translate-y-8" />
 
-    <x-user.form-textarea name="description" labelName="商品の説明" />
+    <x-user.form-textarea name="description" labelName="商品の説明" value="{{ old('description') }}" />
     <x-input-error :messages="$errors->get('description')" class="-translate-y-8" />
 
     <x-user.partition name="販売価格" />
