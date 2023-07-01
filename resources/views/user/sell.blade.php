@@ -9,7 +9,7 @@
       <label for="image" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-500 font-medium border-2 py-1 px-4 rounded-lg border-red-500 hover:text-white hover:bg-red-500 cursor-pointer">
         画像を選択する
       </label>
-      <input @change="change" type="file" id="image" class="hidden">
+      <input @change="change" type="file" id="image" class="hidden" name="image">
     </div>
 
     <x-user.partition name="商品の詳細" />
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <x-user.form-group name="status" labelName="商品の状態" />
+    <x-user.form-group name="condition" labelName="商品の状態" />
 
     <x-user.partition name="商品名と説明" />
     <x-user.form-group name="name" labelName="商品名" />
