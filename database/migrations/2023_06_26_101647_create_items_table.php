@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('img_url', 255);
             $table->foreignId('user_id');
-            $table->foreignId('category_item_id');
             $table->foreignId('condition_id');
             $table->timestamps();
         });

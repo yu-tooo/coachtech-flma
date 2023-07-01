@@ -60,7 +60,6 @@ class ItemController extends Controller
             'description' => $request->description,
             'img_url' => $img_url,
             'user_id' => Auth::guard('users')->id(),
-            'category_item_id' => 0,
             'condition_id' => $condition_id
         ]);
         
