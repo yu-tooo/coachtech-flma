@@ -13,7 +13,7 @@
     <x-user.form-group name="name" labelName="ユーザー名" value="{{ old('name', $user->name) }}" />
     <x-input-error :messages="$errors->get('name')" class="-translate-y-8" />
 
-    <x-user.form-group name="postcode" labelName="郵便番号"  value="{{ old('postcode', $user->profile->getPostCode()) }}" placeholder="例) 1234567" />
+    <x-user.form-group name="postcode" labelName="郵便番号" value="{{ old('postcode', $user->profile->getPostCode()) }}" placeholder="例) 1234567" />
     <x-input-error :messages="$errors->get('postcode')" class="-translate-y-8" />
 
     <x-user.form-group name="address" labelName="住所" value="{{ old('address', $user->profile->getAddress()) }}" />

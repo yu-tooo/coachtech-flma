@@ -7,7 +7,7 @@ use App\Models\Profile;
 use App\Models\Item;
 use App\Models\SoldItem;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\AddressRequest;
 
 class PurchaseController extends Controller
 {
@@ -36,7 +36,7 @@ class PurchaseController extends Controller
         return view('user.address', $data);
     }
 
-    public function updateAddress(Request $request, $item_id)
+    public function updateAddress(AddressRequest $request, $item_id)
     {
         Profile::where('user_id', Auth::guard('users')->id())
         ->update([

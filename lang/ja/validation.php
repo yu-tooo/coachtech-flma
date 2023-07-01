@@ -167,7 +167,9 @@ return [
         'productName' => '商品名',
         'description' => '商品の説明',
         'price' => '販売価格',
-        'comment' => 'コメント'
+        'comment' => 'コメント',
+        'postcode' => '郵便番号',
+        'address' => '住所'
     ],
 
 ];
