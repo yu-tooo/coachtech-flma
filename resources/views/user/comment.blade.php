@@ -46,7 +46,8 @@
 
     <form method="POST" action="{{ route('user.comment', ['item_id' => $item->id]) }}" class="w-full mt-8">
       @csrf
-      <x-user.form-textarea name="comment" labelName="商品へのコメント" />
+      <x-user.form-textarea name="comment" labelName="商品へのコメント" value="{{ old('comment') }}" />
+      <x-input-error :messages="$errors->get('comment')" class="-translate-y-8" />
       <div class="w-full -mt-4">
         <x-user.button name="コメントを送信する" />
       </div>

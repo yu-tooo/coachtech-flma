@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -22,7 +22,7 @@ class CommentController extends Controller
         return view('user.comment', $data);
     }
 
-    public function create(Request $request, $item_id)
+    public function create(CommentRequest $request, $item_id)
     {
         Comment::create([
             'user_id' => Auth::guard('users')->id(),

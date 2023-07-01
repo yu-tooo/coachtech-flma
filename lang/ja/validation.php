@@ -166,7 +166,8 @@ return [
         'condition' => '商品の状態',
         'productName' => '商品名',
         'description' => '商品の説明',
-        'price' => '販売価格'
+        'price' => '販売価格',
+        'comment' => 'コメント'
     ],
 
 ];
