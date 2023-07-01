@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Profile;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\ProfileRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 
@@ -33,7 +33,7 @@ class UserController extends Controller
     }
 
 
-    public function updateProfile(Request $request)
+    public function updateProfile(ProfileRequest $request)
     {
         $user_id = Auth::guard('users')->id();
         $profile = Profile::where('user_id', $user_id);
