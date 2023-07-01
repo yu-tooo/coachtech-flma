@@ -4,11 +4,11 @@
 
   <form class="w-full" method="POST" action="{{ route('user.login') }}">
     @csrf
-    
     <x-user.form-group name="email" labelName="メールアドレス" type="email" />
-
     <x-user.form-group name="password" labelName="パスワード" type="password" />
 
+    <x-input-error :messages="$errors->get('email')" />
+    <x-input-error :messages="$errors->get('password')" />
     <div class="w-full mt-8">
       <x-user.button name="ログインする" />
     </div>
