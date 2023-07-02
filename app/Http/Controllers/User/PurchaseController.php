@@ -13,6 +13,10 @@ class PurchaseController extends Controller
 {
     public function index($item_id)
     {
+        if(!Profile::where('user_id', Auth::guard('users')->id())->exists()){
+            return redirect(route('user.profile'));
+        } 
+
         $item = Item::find($item_id);
         return view('user.purchase', ['item' => $item]);
     }

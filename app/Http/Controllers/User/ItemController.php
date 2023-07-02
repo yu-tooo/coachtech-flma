@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Condition;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\ItemsRequest;
@@ -49,6 +50,9 @@ class ItemController extends Controller
 
     public function sellView()
     {
+        if (!Profile::where('user_id', Auth::guard('users')->id())->exists()) {
+            return redirect(route('user.profile'));
+        } 
         return view('user.sell');
     }
 
