@@ -54,6 +54,15 @@ coachtechブランドのアイテムを出品する
 ![Alt text](storage/image/ER_figure.png)
 
 ## 環境構築
+- git init
 - git clone https://github.com/yu-tooo/coachtech-flma.git
+- cd coachtech-flma
+- composer install
+- cp .env.example .env
+- php artisan key:generate
+- php artisan config:clear
+- php artisan storage:link
+- npm install
 - npm run build
+- php artisan migrate
 - php artisan serve
