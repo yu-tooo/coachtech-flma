@@ -1,6 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\ItemController;
+use App\Http\Controllers\User\LikeController;
+use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\PurchaseController;
+use App\Http\Controllers\User\RegisteredUserController;
+use App\Http\Controllers\User\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +20,62 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('guest:users')->group(function () {
+  Route::get('register', [RegisteredUserController::class, 'create'])
+  ->name('register');
+
+  Route::post('register', [RegisteredUserController::class, 'store']);
+
+  Route::get('login', [AuthenticatedSessionController::class, 'create'])
+  ->name('login');
+
+  Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware('auth:users')->group(function () {
+  Route::get('/item/comment/{item_id}', [CommentController::class, 'index'])
+  ->name('comment');
+
+  Route::post('/item/comment/{item_id}', [CommentController::class, 'create']);
+  
+  Route::post('/item/like/{item_id}', [LikeController::class, 'create'])
+  ->name('like');
+
+  Route::post('/item/unlike/{item_id}', [LikeController::class, 'destroy'])
+  ->name('unlike');
+
+  Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'address'])
+  ->name('address');
+
+  Route::post('/purchase/address/{item_id}', [PurchaseController::class, 'updateAddress']);
+
+  Route::get('/purchase/{item_id}', [PurchaseController::class, 'index'])
+  ->name('purchase');
+
+  Route::post('/purchase/{item_id}', [PurchaseController::class, 'purchase']);
+
+  Route::get('/sell', [ItemController::class, 'sellView'])
+  ->name('sell');
+
+  Route::post('/sell', [ItemController::class, 'sellCreate']);
+
+  Route::get('/mypage', [UserController::class, 'mypage'])
+  ->name('mypage');
+
+  Route::get('/mypage/profile', [UserController::class, 'profile'])
+  ->name('profile');
+
+  Route::post('/mypage/profile', [UserController::class, 'updateProfile']);
+
+  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+  ->name('logout');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/', [ItemController::class, 'index'])
+  ->name('home');
+
+Route::post('/', [ItemController::class, 'find']);
+
+Route::get('/item/{item_id}', [ItemController::class, 'detail'])
+  ->name('item');
