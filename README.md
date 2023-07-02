@@ -1,8 +1,7 @@
 # coachtech フリマ
  独自のフリマアプリ
 
-< --- トップ画面の画像 ---- >
-
+![Alt text](storage/image/home.png)
 ## 作成した目的
 coachtechブランドのアイテムを出品する
 
