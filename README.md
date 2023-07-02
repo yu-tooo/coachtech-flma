@@ -27,12 +27,12 @@ coachtechブランドのアイテムを出品する
 
 
 ## 使用技術（実行環境）
-- Laravel 10.x
-- Vue 3
+- Laravel 9.x
 - Blade
+- tailwindcss
+- alpinejs
 
 ## テーブル設計
-< --- 作成したテーブル設計の画像 ---- >
 ![Alt text](storage/image/usersTable.png)
 
 ![Alt text](storage/image/profilesTable.png)
@@ -54,5 +54,7 @@ coachtechブランドのアイテムを出品する
 ## ER図
 ![Alt text](storage/image/ER_figure.png)
 
-## 他に記載することがあれば記述する
-例） ## 環境構築、## アカウントの種類（テストユーザーなど）
+## 環境構築
+- git clone https://github.com/yu-tooo/coachtech-flma.git
+- npm run build
+- php artisan serve
