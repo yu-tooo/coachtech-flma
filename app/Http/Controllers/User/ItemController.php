@@ -43,7 +43,7 @@ class ItemController extends Controller
     
     public function detail($item_id)
     {
-        $item = Item::find($item_id);
+        $item = Item::withCount('like')->withCount('comment')->find($item_id);
         $class = Item::find($item_id)->categories()->pluck('name');
         return view('user.item', ['item' => $item, 'categories' => $class]);
     }

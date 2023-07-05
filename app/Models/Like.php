@@ -18,9 +18,4 @@ class Like extends Model
     {
         return $this->where('user_id', $user_id)->where('item_id', $item_id)->exists();
     }
-
-    public function getCount($item_id)
-    {
-        return $this->where('item_id', $item_id)->count();
-    }
 }
