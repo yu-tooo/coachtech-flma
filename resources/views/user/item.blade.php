@@ -10,7 +10,7 @@
 
     <div class="flex gap-x-4">
       <div>
-        @if($item->like->isLike(Auth::guard('users')->id(), $item->id))
+        @if($item->like->isLike(Auth::guard('users')->id()))
         <form method="POST" action="{{ route('user.unlike', ['item_id' => $item->id]) }}">
           @csrf
           <button><x-star-icon class="stroke-yellow-500 fill-yellow-400" /></button>

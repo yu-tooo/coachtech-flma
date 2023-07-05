@@ -14,8 +14,9 @@ class Like extends Model
         'item_id'
     ];
 
-    public function isLike($user_id, $item_id)
+    public function isLike($user_id)
     {
-        return $this->where('user_id', $user_id)->where('item_id', $item_id)->exists();
+        return $this->where('user_id', $user_id)->where('item_id', $this->item_id)
+        ->exists();
     }
 }
