@@ -75,7 +75,5 @@ Route::middleware('auth:users')->group(function () {
 Route::get('/', [ItemController::class, 'index'])
   ->name('home');
 
-Route::post('/', [ItemController::class, 'find']);
-
 Route::get('/item/{item_id}', [ItemController::class, 'detail'])
   ->name('item');
