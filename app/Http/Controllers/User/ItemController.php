@@ -18,7 +18,7 @@ class ItemController extends Controller
         $user_id = Auth::guard('users')->id();
 
         $items = Item::where('user_id', '!=', $user_id)
-        ->where('name', 'LIKE BINARY', '%' . $request->name . '%')
+        ->where('name', 'LIKE', '%'. $request->name. '%')
         ->doesntHave('sold_items')
         ->get();
 

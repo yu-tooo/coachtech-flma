@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Controllers\User;
 
 use App\Models\Item;
+use Database\Seeders\ItemSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,16 +14,23 @@ class ItemControllerTest extends TestCase
     /** @test */
     function index_view(): void
     {
-        $this->seed();
+        $this->seed([
+            ItemSeeder::class,
+        ]);
         $this->get(route('user.home'))
         ->assertStatus(200)
-        ->assertSee('items/item12.jpg');
+        ->assertSee('items/item12');
+
+        $this->get(route('user.home', [
+            'name' => 'ネックレス'
+        ]))->assertStatus(200)
+        ->assertSee('items/item7')
+        ->assertDontSee('items/item12');
     }
 
     /** @test */
     function item_view() {
         $this->seed();
-
         $item1 = Item::find(1);
         $item2 = Item::find(2);
 
@@ -32,6 +40,7 @@ class ItemControllerTest extends TestCase
         ->assertSee('￥5,400(値段)')
         ->assertSee(1)
         ->assertSee(3)
+        ->assertSee('装着')
         ->assertSee('運動');
 
         $this->get(route('user.item', ['item_id' => $item2]))
