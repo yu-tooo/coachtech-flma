@@ -1,7 +1,7 @@
 @props ([
 'name',
 'labelName',
-'value'
+'value' => ""
 ])
 
 <label class="block text-lg font-bold cursor-pointer hover:text-gray-600" for="{{ $name }}">{{ $labelName }}</label>
