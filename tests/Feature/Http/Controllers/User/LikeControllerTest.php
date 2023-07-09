@@ -16,7 +16,7 @@ class LikeControllerTest extends TestCase
     /** @test */
     function create_like() 
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $item = Item::find(10);
         $this->post(route('user.like', ['item_id' => $item->id]))
         ->assertRedirectToRoute('user.login');
@@ -35,7 +35,7 @@ class LikeControllerTest extends TestCase
     /** @test */
     function destroy_like()
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $item = Item::find(10);
         $this->post(route('user.unlike', ['item_id' => $item->id]))
         ->assertRedirectToRoute('user.login');

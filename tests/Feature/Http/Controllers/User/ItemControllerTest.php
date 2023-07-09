@@ -5,6 +5,7 @@ namespace Tests\Feature\Http\Controllers\User;
 use App\Models\Item;
 use App\Models\User;
 use Database\Seeders\ItemSeeder;
+use Database\Seeders\ProfileSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -17,7 +18,7 @@ class ItemControllerTest extends TestCase
     
     function index_view(): void
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $this->get(route('user.home'))->assertStatus(200)->assertSee('item12');
 
         $this->get(route('user.home', [
@@ -51,5 +52,47 @@ class ItemControllerTest extends TestCase
             $item1->comment_count,
             $item1->condition->getCondition()
         ])->assertSeeInOrder(['装着', '運動']);
-    }    
+    }
+
+    /** @test */
+    function sell_view(): void 
+    {
+        $this->seed(ProfileSeeder::class);
+        $withProfileUser = User::factory()->create(['id' => 1]);
+        $withoutProfileUser = User::factory()->create(['id' => 10]);
+
+        $this->get(route('user.sell'))->assertRedirectToRoute('user.login');
+
+        $this->actingAs($withProfileUser, 'users')->get(route('user.sell'))
+        ->assertStatus(200)->assertSee('商品の出品');
+
+        $this->actingAs($withoutProfileUser, 'users')->get(route('user.sell'))
+        ->assertRedirectToRoute('user.profile');
+    }
+
+    /** @test */
+    function sell_validate(): void
+    {
+        $this->post(route('user.sell', []))->assertRedirectToRoute('user.login');
+
+        $this->login('users');
+        $this->post(route('user.sell', [
+            'categories' => [""]
+        ]))->assertInvalid([
+            'productName' => "商品名は必ず入力してください",
+            'price' => "販売価格は必ず入力してください",
+            'description' => "商品の説明は必ず入力してください",
+            'image' => "画像は必ず入力してください",
+            'categories.0' => 'カテゴリー1は必ず入力してください',
+            'condition' => "商品の状態は必ず入力してください"
+        ]);
+        
+        $this->post(route('user.sell', [
+            'price' => "10,000",
+            'description' => "20文字以下"
+        ]))->assertInvalid([
+            'price' => '販売価格には、数字を入力してください',
+            'description' => '商品の説明は、20文字以上で入力してください'
+        ]);
+    }
 }
