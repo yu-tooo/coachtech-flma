@@ -43,7 +43,7 @@
     <x-user.form-group name="productName" labelName="商品名" />
     <x-input-error :messages="$errors->get('productName')" class="-translate-y-8" />
 
-    <x-user.form-textarea name="description" labelName="商品の説明" value="{{ old('description') }}" />
+    <x-user.form-textarea name="description" labelName="商品の説明" />
     <x-input-error :messages="$errors->get('description')" class="-translate-y-8" />
 
     <x-user.partition name="販売価格" />

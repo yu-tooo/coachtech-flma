@@ -10,7 +10,7 @@
 
     <div class="flex gap-x-4">
       <div>
-        @if($item->like->isLike(Auth::guard('users')->id(), $item->id))
+        @if($item->like->isLike(Auth::guard('users')->id()))
         <form method="POST" action="{{ route('user.unlike', ['item_id' => $item->id]) }}">
           @csrf
           <button><x-star-icon class="stroke-yellow-500 fill-yellow-400" /></button>
@@ -22,7 +22,7 @@
         </form>
         @endif
         <p class="text-center">
-          {{ $item->like->getCount($item->id) }}
+          {{ $item->like_count }}
         </p>
       </div>
       <div>
@@ -30,7 +30,7 @@
           <button><x-bubble-icon /></button>
         </a>
         <p class="text-center">
-          {{ $item->comment->getCount($item->id) }}
+          {{ $item->comment_count }}
         </p>
       </div>
     </div>

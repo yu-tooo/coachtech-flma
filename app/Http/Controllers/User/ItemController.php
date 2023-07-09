@@ -13,11 +13,13 @@ use App\Http\Requests\User\ItemsRequest;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user_id = Auth::guard('users')->id();
 
-        $items = Item::where('user_id', '!=', $user_id)->doesntHave('sold_items')
+        $items = Item::where('user_id', '!=', $user_id)
+        ->where('name', 'LIKE', '%'. $request->name. '%')
+        ->doesntHave('sold_items')
         ->get();
 
         $likedItems = Item::whereHas('likes', function($query) use($user_id) {
@@ -26,24 +28,10 @@ class ItemController extends Controller
 
         return view('user.index', ['items' => $items, 'l_items' => $likedItems]);
     }
-
-    public function find(Request $request)
-    {
-        $user_id = Auth::guard('users')->id();
-
-        $items = Item::where('user_id', '!=', $user_id)->doesntHave('sold_items')
-        ->where('name', 'LIKE BINARY', '%'. $request->name. '%')->get();
-
-        $likedItems = Item::whereHas('likes', function ($query) use ($user_id) {
-            $query->where('user_id', $user_id);
-        })->doesntHave('sold_items')->get();
-
-        return view('user.index', ['items' => $items, 'l_items' => $likedItems]);
-    }
     
     public function detail($item_id)
     {
-        $item = Item::find($item_id);
+        $item = Item::withCount('like')->withCount('comment')->find($item_id);
         $class = Item::find($item_id)->categories()->pluck('name');
         return view('user.item', ['item' => $item, 'categories' => $class]);
     }

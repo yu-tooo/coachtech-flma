@@ -15,9 +15,4 @@ class Comment extends Model
     {
         return $this->BelongsTo(User::class);
     }
-
-    public function getCount($item_id)
-    {
-        return $this->where('item_id', $item_id)->count();
-    }
 }
