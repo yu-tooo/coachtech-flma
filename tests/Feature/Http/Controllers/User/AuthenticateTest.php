@@ -78,7 +78,7 @@ class AuthenticateTest extends TestCase
     function can_logout() 
     {
         $this->login('users');
-        $this->post(route('user.logout'))->assertRedirect(route('user.home'));
+        $this->post(route('user.logout'))->assertRedirectToRoute('user.home');
         $this->assertGuest('users');
     }
 }

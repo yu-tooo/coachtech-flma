@@ -14,6 +14,7 @@ class ItemControllerTest extends TestCase
     use RefreshDatabase;
     
     /** @test */
+    
     function index_view(): void
     {
         $this->seed([ItemSeeder::class]);
