@@ -16,21 +16,9 @@ class CommentSeeder extends Seeder
     public function run()
     {
         $param = [
-            'user_id' => 1,
-            'item_id' => 1,
-            'comment' => "とても素晴らしい",
-        ];
-        Comment::create($param);
-        $param = [
             'user_id' => 2,
             'item_id' => 1,
-            'comment' => "ぜひ欲しい",
-        ];
-        Comment::create($param);
-        $param = [
-            'user_id' => 3,
-            'item_id' => 1,
-            'comment' => "買いました!!",
+            'comment' => "コメントテスト",
         ];
         Comment::create($param);
         
