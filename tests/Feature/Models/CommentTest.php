@@ -12,6 +12,7 @@ use Tests\TestCase;
 class CommentTest extends TestCase
 {
     use RefreshDatabase;
+    
     /** @test */
     function user_relation(): void
     {   

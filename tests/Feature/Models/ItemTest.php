@@ -15,6 +15,7 @@ use Tests\TestCase;
 class ItemTest extends TestCase
 {
     use RefreshDatabase;
+    
     /** @test */
     function like_relation() :void
     {
