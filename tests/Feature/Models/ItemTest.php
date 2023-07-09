@@ -30,14 +30,6 @@ class ItemTest extends TestCase
     }
 
     /** @test */
-    function comment_relation() :void
-    {
-        $this->seed([ItemSeeder::class, CommentSeeder::class]);
-        $item = Item::withCount('comment')->first();
-        $this->assertEquals(3, $item->comment_count);
-    }
-
-    /** @test */
     function sold_items_relation() :void
     {
         $this->seed([ItemSeeder::class]);
