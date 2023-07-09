@@ -12,6 +12,7 @@ use Tests\TestCase;
 class ItemControllerTest extends TestCase
 {
     use RefreshDatabase;
+    
     /** @test */
     function index_view(): void
     {
@@ -19,7 +20,7 @@ class ItemControllerTest extends TestCase
         $this->get(route('user.home'))->assertStatus(200)->assertSee('item12');
 
         $this->get(route('user.home', [
-            'name' => 'ネックレス'
+            'name' => 'ネック'
         ]))->assertStatus(200)->assertSee('item7')->assertDontSee('item12');
     }
 
