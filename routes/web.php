@@ -9,16 +9,6 @@ use App\Http\Controllers\User\RegisteredUserController;
 use App\Http\Controllers\User\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::middleware('guest:users')->group(function () {
   Route::get('register', [RegisteredUserController::class, 'create'])
@@ -74,8 +64,6 @@ Route::middleware('auth:users')->group(function () {
 
 Route::get('/', [ItemController::class, 'index'])
   ->name('home');
-
-Route::post('/', [ItemController::class, 'find']);
 
 Route::get('/item/{item_id}', [ItemController::class, 'detail'])
   ->name('item');

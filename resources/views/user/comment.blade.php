@@ -21,7 +21,7 @@
         </form>
         @endif
         <p class="text-center">
-          {{ $item->like->getCount($item->id) }}
+          {{ $item->like_count }}
         </p>
       </div>
       <div>
@@ -29,7 +29,7 @@
           <button><x-bubble-icon /></button>
         </a>
         <p class="text-center">
-          {{ $item->comment->getCount($item->id) }}
+          {{ $item->comment_count }}
         </p>
       </div>
     </div>

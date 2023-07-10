@@ -12,14 +12,11 @@ class CommentController extends Controller
 {
     public function index($item_id)
     {
-        $data = [
-            'item' => Item::find($item_id),
-            'comments' => Comment::where('item_id', '=', $item_id)
-            ->orderBy('updated_at', 'desc')->take(3)
-            ->get()
-        ];
+        $item = Item::withCount('like')->withCount('comment')->find($item_id);
+        $comments = Comment::where('item_id', '=', $item_id)->orderBy('updated_at', 'desc')
+        ->take(3)->get();
 
-        return view('user.comment', $data);
+        return view('user.comment', ['item' => $item, 'comments' => $comments]);
     }
 
     public function create(CommentRequest $request, $item_id)

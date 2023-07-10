@@ -32,12 +32,12 @@ class PurchaseController extends Controller
 
     public function address($item_id)
     {
-        $user = Profile::where('user_id', Auth::guard('users')->id())->first();
-        $data = [
-            'user' => $user,
-            'item_id' => $item_id
-        ];
-        return view('user.address', $data);
+        if (!Profile::where('user_id', Auth::guard('users')->id())->exists()) {
+            return redirect(route('user.profile'));
+        } 
+        $profile = Profile::where('user_id', Auth::guard('users')->id())->first();
+        
+        return view('user.address', ['profile' => $profile, 'item_id' => $item_id]);
     }
 
     public function updateAddress(AddressRequest $request, $item_id)

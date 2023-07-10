@@ -7,8 +7,7 @@
     </div>
 
     <div class="hidden md:block w-1/3 mr-4">
-      <form method="POST" action="{{ route('user.home') }}">
-        @csrf
+      <form action="{{ route('user.home') }}">
         <input class="h-8 rounded-sm w-full border-transparent focus:border-transparent focus:ring-0" type="text" name="name" placeholder="何をお探しですか？">
       </form>
     </div>
@@ -45,8 +44,7 @@
   <div class="relative">
     <ul :class="{'translate-y-full': open }" class="absolute -bottom-0 w-full duration-500 bg-black pt-4 text-center border-t border-white">
       <li class="py-4">
-        <form method="POST" action="{{ route('user.home') }}">
-          @csrf
+        <form action="{{ route('user.home') }}">
           <input class="h-8 w-3/5 rounded-sm border-transparent focus:border-transparent focus:ring-0" type="text" name="name" placeholder="何をお探しですか？">
         </form>
       </li>
