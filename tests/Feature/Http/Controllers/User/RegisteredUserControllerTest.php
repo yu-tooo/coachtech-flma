@@ -12,7 +12,7 @@ class RegisteredUserControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function registration_view(): void
+    function registration_view(): void
     {
         $this->get(route('user.register'))->assertStatus(200);
     }
@@ -37,7 +37,7 @@ class RegisteredUserControllerTest extends TestCase
     }
 
     /** @test */
-    public function new_users_can_register(): void
+    function new_users_can_register(): void
     {
         $response = $this->post(route('user.register'), [
             'name' => 'Test User',
