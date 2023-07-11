@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-  <title>Owner</title>
-</head>
-
-<body>
+<x-owner.auth-layout>
   <h1 class="mb-8 text-2xl font-extrabold">会員登録(オーナー)</h1>
 
   <form class="w-full" method="POST" action="{{ route('owner.register') }}">
@@ -23,9 +13,4 @@
       <x-user.button name="会員登録する" />
     </div>
   </form>
-
-  <a class="mt-6 text-blue-500" href="{{ route('owner.login') }}">ログインはこちら</a>
-
-</body>
-
-</html>
+</x-owner.auth-layout>
