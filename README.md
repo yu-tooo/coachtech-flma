@@ -1,11 +1,12 @@
 # coachtech フリマ
- 独自のフリマアプリ
+独自のフリマアプリ
 
 ![Alt text](storage/image/home.png)
 ## 作成した目的
 coachtechブランドのアイテムを出品する
 
 ## 機能一覧
+### ユーザ
 - 会員登録
 - ログイン
 - ログアウト
@@ -23,7 +24,8 @@ coachtechブランドのアイテムを出品する
 - 出品
 - 購入
 - 配送先変更
-
+### テスト
+- ユーザ単体テスト
 
 ## 使用技術（実行環境）
 - Laravel 9.x
@@ -51,7 +53,7 @@ coachtechブランドのアイテムを出品する
 ![Alt text](storage/image/category_itemTable.png)
 
 ## ER図
-![Alt text](storage/image/ER_figure.png)
+![Alt text](storage/image/ER_figure.drawio.png)
 
 ## 環境構築
 1. git init
