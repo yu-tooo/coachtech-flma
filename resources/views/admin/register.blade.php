@@ -1,4 +1,4 @@
-<x-owner.auth-layout>
+<x-owner.main-layout :role="$role">
   <h1 class="mb-8 text-2xl font-extrabold">会員登録(オーナー)</h1>
 
   <form class="w-full" method="POST" action="{{ route('owner.register') }}">
@@ -13,4 +13,4 @@
       <x-user.button name="会員登録する" />
     </div>
   </form>
-</x-owner.auth-layout>
+</x-owner.main-layout>

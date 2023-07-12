@@ -20,7 +20,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('owner.register');
+        $role = Auth::guard('admin')->user();
+        return view('admin.register', compact('role'));
     }
 
     /**
