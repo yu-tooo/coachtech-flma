@@ -15,7 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Owner::factory([
             'name' => '森田悠斗',
-            'email' => 'owner@gmail.com'
+            'email' => 'owner@example.com'
+        ])->create();
+        \App\Models\Admin::factory([
+            'name' => '森田悠斗',
+            'email' => 'admin@example.com'
         ])->create();
 
         // \App\Models\User::factory()->create([

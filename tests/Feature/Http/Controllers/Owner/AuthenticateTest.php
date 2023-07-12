@@ -54,7 +54,7 @@ class AuthenticateTest extends TestCase
 
         $response = $this->post(route('owner.login'), [
             'email' => $owner->email,
-            'password' => 'password',
+            'password' => 'password1234',
         ]);
 
         $this->assertAuthenticated('owners');
