@@ -24,7 +24,7 @@
       <a href="{{ route('owner.home') }}" class="inline-block text-white hover:underline">
         ユーザー
       </a>
-      <a href="{{ route('owner.item') }}" class="inline-block text-white hover:underline">
+      <a href="{{ route('owner.items') }}" class="inline-block text-white hover:underline">
         アイテム
       </a>
       <form class="inline-block" method="POST" action="{{ route('owner.logout') }}">
@@ -43,7 +43,7 @@
       @csrf
       <button class="bg-white font-bold border px-2 py-0.5 rounded-sm hover:bg-black hover:text-white">ログアウト</button>
     </form>
-    <a href="{{ route('owner.item') }}" class="text-white mx-4 hover:underline">
+    <a href="{{ route('owner.items') }}" class="text-white mx-4 hover:underline">
       アイテム
     </a>
     <a href="{{ route('owner.home') }}" class="text-white mx-4 hover:underline">

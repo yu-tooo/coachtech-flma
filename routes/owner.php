@@ -22,7 +22,10 @@ Route::middleware('auth:owners')->group(function() {
     ->name('user');
 
   Route::get('/item', [ItemController::class, 'index'])
-    ->name('item');
+    ->name('items');
+
+  Route::get('item/detail/{item_id}', [ItemController::class, 'detail'])
+    ->name('item_detail');
 
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
       ->name('logout');

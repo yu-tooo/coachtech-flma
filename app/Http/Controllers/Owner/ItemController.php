@@ -15,4 +15,9 @@ class ItemController extends Controller
         $items = Item::with('user')->get();
         return view('owner.item', compact('ownerName', 'items'));
     }
+
+    public function detail()
+    {
+
+    }
 }
