@@ -18,26 +18,26 @@ class UserSeeder extends Seeder
         $param = [
             [
             'name' => 'ユーザー1',
-            'email' => 'user1@gmail.com',
-            'password' => Hash::make('asdf1234')
+            'email' => 'user1@example.com',
+            'password' => Hash::make('password1234')
             ], 
             [
             'name' => 'ユーザー2',
-            'email' => 'user2@gmail.com',
-            'password' => Hash::make('asdf1234')
+            'email' => 'user2@example.com',
+            'password' => Hash::make('password1234')
             ],
             [
             'name' => 'ユーザー3',
-            'email' => 'user3@gmail.com',
-            'password' => Hash::make('asdf1234')
+            'email' => 'user3@example.com',
+            'password' => Hash::make('password1234')
             ],
             [
-            'email' => 'user4@gmail.com',
-            'password' => Hash::make('asdf1234')
+            'email' => 'user4@example.com',
+            'password' => Hash::make('password1234')
             ],
             [
-            'email' => 'user5@gmail.com',
-            'password' => Hash::make('asdf1234')
+            'email' => 'user5@example.com',
+            'password' => Hash::make('password1234')
             ]
         ];
 

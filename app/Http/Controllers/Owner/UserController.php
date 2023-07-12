@@ -22,8 +22,9 @@ class UserController extends Controller
         return view('owner.user', compact('role', 'user'));
     }
 
-    public function destroy()
+    public function destroy($user_id)
     {
-        dd('ok');
+        User::find($user_id)->delete();
+        return redirect(route('admin.home'));
     }
 }
