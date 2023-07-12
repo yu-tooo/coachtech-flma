@@ -36,7 +36,7 @@ class UserControllerTest extends TestCase
         ->assertDontSee('このユーザを削除する');
 
         $this->login('admin');
-        $this->get(route('owner.user', ['user_id' => $user->id]))->assertStatus(200)
+        $this->get(route('admin.user', ['user_id' => $user->id]))->assertStatus(200)
         ->assertSee('このユーザを削除する');
     }
 }
