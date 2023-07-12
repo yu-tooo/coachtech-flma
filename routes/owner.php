@@ -3,6 +3,7 @@
 use App\Http\Controllers\Owner\UserController;
 use App\Http\Controllers\Owner\RegisteredUserController;
 use App\Http\Controllers\Owner\AuthenticatedSessionController;
+use App\Http\Controllers\Owner\ItemController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,13 +18,16 @@ Route::middleware('auth:owners')->group(function() {
   Route::get('/', [UserController::class, 'index'])
     ->name('home');
     
-  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->name('logout');
-
   Route::get('detail/{user_id}', [UserController::class, 'detail'])
-    ->name('detail');
-});
+    ->name('user');
 
+  Route::get('/item', [ItemController::class, 'index'])
+    ->name('item');
+
+  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+      ->name('logout');
+  });
+  
 Route::middleware('auth:admin')->group(function() {
   Route::get('register', [RegisteredUserController::class, 'create'])
     ->name('register');

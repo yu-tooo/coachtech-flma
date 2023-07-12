@@ -40,4 +40,9 @@ class Item extends Model
     {
         return $this->belongsTo(Condition::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
