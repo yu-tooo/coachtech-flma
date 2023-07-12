@@ -5,7 +5,7 @@
       <img src="{{ asset('storage/image/'. $user->profile->getUrl()) }}" class="w-36 h-36 rounded-full object-cover mb-2">
       {{ $user->name }}
     </div>
-    <x-owner.readonly labelName='利用者番号' :value="$user->id" />
+    <x-owner.readonly labelName='ID' :value="$user->id" />
     <x-owner.readonly labelName='郵便番号' :value="$user->profile->getPostCode()" />
     <x-owner.readonly labelName='住所' :value="$user->profile->getAddress()" />
     <x-owner.readonly labelName='建物' :value="$user->profile->getBuilding()" />

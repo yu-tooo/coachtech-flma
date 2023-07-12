@@ -18,7 +18,7 @@ Route::middleware('auth:owners')->group(function() {
   Route::get('/', [UserController::class, 'index'])
     ->name('home');
     
-  Route::get('detail/{user_id}', [UserController::class, 'detail'])
+  Route::get('user/detail/{user_id}', [UserController::class, 'detail'])
     ->name('user');
 
   Route::get('/item', [ItemController::class, 'index'])
@@ -26,6 +26,12 @@ Route::middleware('auth:owners')->group(function() {
 
   Route::get('item/detail/{item_id}', [ItemController::class, 'detail'])
     ->name('item_detail');
+
+  Route::post('item/delete/{item_id}', [ItemController::class, 'destroy'])
+    ->name('item_delete');
+
+  Route::post('item/restore/{item_id}', [ItemController::class, 'restore'])
+    ->name('item_restore');
 
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
       ->name('logout');

@@ -35,14 +35,27 @@ class ItemControllerTest extends TestCase
     }
 
     /** @test */
-    function owner_can_delete_item(): void
+    function owner_can_delete_restore_item(): void
     {
         $this->seed(ItemSeeder::class);
         $item = Item::find(1);
 
         $this->login('owners');
-        $this->from(route('owner.item_delete'))
+
+        $this->from(route('owner.item_detail', ['item_id' => $item->id]))
         ->post(route('owner.item_delete', ['item_id' => $item->id]))
-        ->assertRedirectToRoute('owner.item_delete');
+        ->assertRedirectToRoute('owner.item_detail', ['item_id' => $item->id]);
+        $this->assertDatabaseHas('items', [
+            'id' => 1,
+            'delete_flag' => 1
+        ]);
+        
+        $this->from(route('owner.item_detail', ['item_id' => $item->id]))
+        ->post(route('owner.item_restore', ['item_id' => $item->id]))
+        ->assertRedirectToRoute('owner.item_detail', ['item_id' => $item->id]);
+        $this->assertDatabaseHas('items', [
+            'id' => 1,
+            'delete_flag' => 0
+        ]);
     }
 }
