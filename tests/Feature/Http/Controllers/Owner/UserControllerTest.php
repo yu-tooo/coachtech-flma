@@ -39,4 +39,17 @@ class UserControllerTest extends TestCase
         $this->get(route('admin.user', ['user_id' => $user->id]))->assertStatus(200)
         ->assertSee('このユーザを削除する');
     }
+
+    /** @test */
+    function admin_can_delete_user(): void
+    {
+        $user = User::factory()->create();
+        $this->login('admin');
+        $this->post(route('admin.user_delete', ['user_id' => $user->id]))
+        ->assertRedirectToRoute('admin.home');
+
+        $this->assertDatabaseMissing('users', [
+            'id' => $user->id
+        ]);
+    }
 }
