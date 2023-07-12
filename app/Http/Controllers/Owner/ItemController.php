@@ -10,16 +10,16 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $ownerName = Auth::guard('owners')->user()->name;
+        $name = Auth::guard('owners')->user()->name;
         $items = Item::with('user')->get();
-        return view('owner.item', compact('ownerName', 'items'));
+        return view('owner.item', compact('name', 'items'));
     }
 
     public function detail($item_id)
     {
-        $ownerName = Auth::guard('owners')->user()->name;
+        $name = Auth::guard('owners')->user()->name;
         $item = Item::withCount('like')->withCount('comment')->find($item_id);
-        return view('owner.item_detail', compact('ownerName', 'item'));
+        return view('owner.item_detail', compact('name', 'item'));
     }
 
     public function destroy($item_id)

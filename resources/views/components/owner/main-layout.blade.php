@@ -51,7 +51,7 @@
     </a>
   </div>
   <div class="mt-8 w-11/12 mx-auto">
-    <span class="text-xl font-bold">{{ $ownerName }}</span>さん
+    <span class="text-xl font-bold">{{ $name }}</span>さん
   </div>
   <div class="py-4 w-11/12 mx-auto">
     {{ $slot }}

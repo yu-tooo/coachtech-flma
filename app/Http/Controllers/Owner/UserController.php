@@ -10,15 +10,15 @@ class UserController extends Controller
 {
     public function index() 
     {
-        $ownerName = Auth::guard('owners')->user()->name;
+        $name = Auth::guard('owners')->user()->name;
         $users = User::get();
-        return view('owner.index', compact('ownerName', 'users'));
+        return view('owner.index', compact('name', 'users'));
     }
 
     public function detail($user_id)
     {
-        $ownerName = Auth::guard('owners')->user()->name;
+        $name = Auth::guard('owners')->user()->name;
         $user = User::find($user_id);
-        return view('owner.user', compact('ownerName', 'user'));
+        return view('owner.user', compact('name', 'user'));
     }
 }
