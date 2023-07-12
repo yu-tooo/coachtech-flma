@@ -23,6 +23,7 @@ class AdminFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('password1234'),
             'remember_token' => Str::random(10),
+            'role' => 'admin'
         ];
     }
 

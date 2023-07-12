@@ -14,20 +14,20 @@
 <body x-data="{ open: false }">
   <header class="flex items-center justify-between px-4 h-12 bg-black">
     <div class="flex items-center text-white">
-      <a href="{{ route('owner.home') }}">
+      <a href="{{ route($role->role. '.home') }}">
         <x-application-logo />
       </a>
       <span class="hidden sm:inline">for</span>
       <span class="text-xl sm:ml-2">Manager</span>
     </div>
     <div class="flex px-4 hidden space-x-4 sm:block">
-      <a href="{{ route('owner.home') }}" class="inline-block text-white hover:underline">
+      <a href="{{ route($role->role. '.home') }}" class="inline-block text-white hover:underline">
         ユーザー
       </a>
-      <a href="{{ route('owner.items') }}" class="inline-block text-white hover:underline">
+      <a href="{{ route($role->role. '.items') }}" class="inline-block text-white hover:underline">
         アイテム
       </a>
-      <form class="inline-block" method="POST" action="{{ route('owner.logout') }}">
+      <form class="inline-block" method="POST" action="{{ route($role->role. '.logout') }}">
         @csrf
         <button class="bg-white font-bold border px-2 py-0.5 rounded-sm hover:bg-black hover:text-white">ログアウト</button>
       </form>
@@ -39,19 +39,19 @@
     </button>
   </header>
   <div :class="{'translate-y-24': open }" class="flex items-center flex-row-reverse absolute px-8 -top-12 bg-black h-12 w-screen duration-500">
-    <form class="inline-block mx-2" method="POST" action="{{ route('owner.logout') }}">
+    <form class="inline-block mx-2" method="POST" action="{{ route($role->role. '.logout') }}">
       @csrf
       <button class="bg-white font-bold border px-2 py-0.5 rounded-sm hover:bg-black hover:text-white">ログアウト</button>
     </form>
-    <a href="{{ route('owner.items') }}" class="text-white mx-4 hover:underline">
+    <a href="{{ route($role->role. '.items') }}" class="text-white mx-4 hover:underline">
       アイテム
     </a>
-    <a href="{{ route('owner.home') }}" class="text-white mx-4 hover:underline">
+    <a href="{{ route($role->role. '.home') }}" class="text-white mx-4 hover:underline">
       ユーザー
     </a>
   </div>
   <div class="mt-8 w-11/12 mx-auto">
-    <span class="text-xl font-bold">{{ $name }}</span>さん
+    <span class="text-xl font-bold">{{ $role->name }}</span>さん
   </div>
   <div class="py-4 w-11/12 mx-auto">
     {{ $slot }}

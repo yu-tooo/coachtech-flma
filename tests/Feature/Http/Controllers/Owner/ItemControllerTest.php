@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Controllers\Owner;
 
 use App\Models\Item;
+use App\Models\Owner;
 use Database\Seeders\ItemSeeder;
 use Database\Seeders\ProfileSeeder;
 use Database\Seeders\UserSeeder;
@@ -18,8 +19,7 @@ class ItemControllerTest extends TestCase
     {
         $this->get(route('owner.items'))->assertRedirectToRoute('owner.login');
 
-        $this->login('owners');
-        $this->get(route('owner.items'))->assertStatus(200)
+        $this->actingAs(Owner::factory()->create(), 'owners')->get(route('owner.items'))->assertStatus(200)
         ->assertSee('商品一覧');
     }
 

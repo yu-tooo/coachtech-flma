@@ -1,4 +1,4 @@
-<x-owner.main-layout :name="$name">
+<x-owner.main-layout :role="$role">
   <div class="block md:flex md:justify-between py-4 px-0 sm:px-8">
     <div class="w-4/5 sm:w-3/5 md:w-2/5 mx-auto">
       <h1 class="text-xl font-bold mb-2 ml-2">{{ $item->name }}</h1>

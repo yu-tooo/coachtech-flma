@@ -1,4 +1,4 @@
-<x-owner.main-layout :name="$name">
+<x-owner.main-layout :role="$role">
   <div class="mx-auto sm:w-4/5 md:w-3/5 lg:w-2/5">
     <h1 class="text-xl font-bold mb-4 text-center">プロフィール</h1>
     <div class="flex flex-col items-center">
