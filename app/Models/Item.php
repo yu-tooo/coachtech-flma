@@ -26,6 +26,11 @@ class Item extends Model
         return $this->hasOne(Comment::class)->withDefault();
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function sold_items()
     {
         return $this->hasMany(SoldItem::class);

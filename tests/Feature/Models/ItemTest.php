@@ -31,9 +31,17 @@ class ItemTest extends TestCase
     }
 
     /** @test */
+    function comments_relation() 
+    {
+        $this->seed(ItemSeeder::class);
+        $item = Item::first();
+        $this->assertInstanceOf(Collection::class, $item->comments);
+    }
+
+    /** @test */
     function sold_items_relation() :void
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $item = Item::first();
         $this->assertInstanceOf(Collection::class, $item->sold_items);
     }
@@ -41,7 +49,7 @@ class ItemTest extends TestCase
     /** @test */
     function categories_relation(): void
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $item = Item::first();
         $this->assertInstanceOf(Collection::class, $item->sold_items);
     }
