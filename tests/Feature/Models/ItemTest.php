@@ -31,7 +31,7 @@ class ItemTest extends TestCase
     }
 
     /** @test */
-    function comments_relation() 
+    function comments_relation(): void
     {
         $this->seed(ItemSeeder::class);
         $item = Item::first();
@@ -39,7 +39,7 @@ class ItemTest extends TestCase
     }
 
     /** @test */
-    function sold_items_relation() :void
+    function sold_items_relation():void
     {
         $this->seed(ItemSeeder::class);
         $item = Item::first();

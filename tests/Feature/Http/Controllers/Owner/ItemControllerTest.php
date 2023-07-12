@@ -14,7 +14,7 @@ class ItemControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function owner_item_home_view() 
+    function owner_item_home_view(): void
     {
         $this->get(route('owner.items'))->assertRedirectToRoute('owner.login');
 
@@ -24,7 +24,7 @@ class ItemControllerTest extends TestCase
     }
 
     /** @test */
-    function owner_item_detail_view()
+    function owner_item_detail_view(): void
     {
         $this->seed([ItemSeeder::class, ProfileSeeder::class, UserSeeder::class]);
         $item = Item::first();
@@ -35,11 +35,14 @@ class ItemControllerTest extends TestCase
     }
 
     /** @test */
-    function owner_can_delete_item() 
+    function owner_can_delete_item(): void
     {
-        // $this->seed(ItemSeeder::class);
-        // $this->login('owners');
-        // $item = Item::find(1);
-        
+        $this->seed(ItemSeeder::class);
+        $item = Item::find(1);
+
+        $this->login('owners');
+        $this->from(route('owner.item_delete'))
+        ->post(route('owner.item_delete', ['item_id' => $item->id]))
+        ->assertRedirectToRoute('owner.item_delete');
     }
 }

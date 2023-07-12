@@ -18,7 +18,7 @@ class RegisteredUserControllerTest extends TestCase
     }
 
     /** @test */
-    function registration_validate() 
+    function registration_validate(): void 
     {
         $url = route('user.register');
         User::factory()->create(['email' => 'test@example.com']);

@@ -75,7 +75,7 @@ class AuthenticateTest extends TestCase
     }
 
     /** @test */
-    function owner_can_logout()
+    function owner_can_logout(): void
     {
         $this->login('owners');
         $this->post(route('owner.logout'))->assertRedirectToRoute('owner.home');

@@ -11,7 +11,7 @@ class UserControllerTest extends TestCase
 {
     use RefreshDatabase;
     /** @test */
-    function owner_home_view() 
+    function owner_home_view(): void
     {
         $this->get(route('owner.home'))->assertRedirectToRoute('owner.login');
 
@@ -23,7 +23,7 @@ class UserControllerTest extends TestCase
     }
 
     /** @test */
-    function owner_user_detail() 
+    function owner_user_detail(): void
     {
         $user = User::factory()->create();
         $this->get(route('owner.user', ['user_id' => $user->id]))

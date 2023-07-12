@@ -12,7 +12,7 @@ class UserControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function mypage_view() 
+    function mypage_view(): void
     {
         $this->seed(ItemSeeder::class);
         $this->get(route('user.mypage'))->assertRedirectToRoute('user.login');
@@ -23,7 +23,7 @@ class UserControllerTest extends TestCase
     }
 
     /** @test */
-    function profile_view() 
+    function profile_view(): void
     {
         $this->get(route('user.profile'))->assertRedirectToRoute('user.login');
         $user = User::factory()->create(['id' => 1]);
@@ -38,7 +38,7 @@ class UserControllerTest extends TestCase
     }
 
     /** @test */
-    function profile_validate() 
+    function profile_validate(): void
     {
         $this->post(route('user.profile', []))->assertRedirectToRoute('user.login');
         $this->login();
@@ -56,7 +56,7 @@ class UserControllerTest extends TestCase
     }
 
     /** @test */
-    function can_create_profile() 
+    function can_create_profile(): void
     {
         $user = User::factory()->create();
         $testRequest = [
