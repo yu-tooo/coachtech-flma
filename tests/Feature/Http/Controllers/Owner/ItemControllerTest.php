@@ -4,6 +4,8 @@ namespace Tests\Feature\Http\Controllers\Owner;
 
 use App\Models\Item;
 use Database\Seeders\ItemSeeder;
+use Database\Seeders\ProfileSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -24,9 +26,20 @@ class ItemControllerTest extends TestCase
     /** @test */
     function owner_item_detail_view()
     {
-        $this->seed(ItemSeeder::class);
+        $this->seed([ItemSeeder::class, ProfileSeeder::class, UserSeeder::class]);
         $item = Item::first();
         $this->get(route('owner.item_detail', ['item_id' => $item->id]))->assertRedirectToRoute('owner.login');
         $this->login('owners');
+        $this->get(route('owner.item_detail', ['item_id' => $item->id]))
+        ->assertSee($item->name);
+    }
+
+    /** @test */
+    function owner_can_delete_item() 
+    {
+        // $this->seed(ItemSeeder::class);
+        // $this->login('owners');
+        // $item = Item::find(1);
+        
     }
 }

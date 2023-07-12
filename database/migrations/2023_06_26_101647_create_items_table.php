@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('img_url', 255);
             $table->foreignId('user_id');
             $table->foreignId('condition_id');
+            $table->boolean('delete_flag')->default(0);
             $table->timestamps();
         });
     }
