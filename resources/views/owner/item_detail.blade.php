@@ -39,7 +39,7 @@
       <h2 class="text-lg font-semibold">コメント</h2>
       <div class="w-full lg:w-10/12">
         @foreach($item->comments as $comments)
-        <input class="w-full py-1.5 px-2 mb-4 bg-gray-200 rounded-sm outline-none" value="{{ $comments->comment }}">
+        <input class="w-full py-1.5 px-2 mb-4 bg-gray-200 rounded-sm outline-none" value="{{ $comments->comment }}" readonly>
         @endforeach
       </div>
     </div>
