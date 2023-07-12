@@ -16,8 +16,10 @@ class UserController extends Controller
         return view('owner.index', compact('ownerName', 'users'));
     }
 
-    public function detail()
+    public function detail($user_id)
     {
-        
+        $ownerName = Auth::guard('owners')->user()->name;
+        $user = User::find($user_id);
+        return view('owner.user', compact('ownerName', 'user'));
     }
 }

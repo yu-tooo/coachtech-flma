@@ -18,7 +18,7 @@
         <x-application-logo />
       </a>
       <span class="hidden sm:inline">for</span>
-      <span class="text-xl sm:ml-2">Owner</span>
+      <span class="text-xl sm:ml-2">Manager</span>
     </div>
     <div class="flex px-4 hidden space-x-4 sm:block">
       <a href="{{ route('owner.home') }}" class="inline-block text-white hover:underline">
@@ -50,10 +50,10 @@
       ユーザー
     </a>
   </div>
-  <div class="mt-8 w-11/12 sm:w-4/5 md:w-3/4 mx-auto">
+  <div class="mt-8 w-11/12 mx-auto">
     <span class="text-xl font-bold">{{ $ownerName }}</span>さん
   </div>
-  <div class="flex flex-col items-center py-8 w-11/12 mx-auto">
+  <div class="py-4 w-11/12 mx-auto">
     {{ $slot }}
   </div>
 
