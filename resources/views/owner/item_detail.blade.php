@@ -4,14 +4,14 @@
       <h1 class="text-xl font-bold mb-2 ml-2">{{ $item->name }}</h1>
       <img src="{{ asset('storage/image/'. $item->img_url) }}" class="shadow-md">
       @if(!$item->delete_flag)
-      <form method="POST" action="{{ route('owner.item_delete', ['item_id' => $item->id]) }}">
+      <form method="POST" action="{{ route($role->role. '.item_delete', ['item_id' => $item->id]) }}">
         @csrf
         <button class="block w-60 mx-auto my-6 p-2 bg-red-500 border border-red-500 rounded-lg text-lg text-white hover:bg-white hover:text-red-500">
           この商品を削除する
         </button>
       </form>
       @else
-      <form method="POST" action="{{ route('owner.item_restore', ['item_id' => $item->id]) }}">
+      <form method="POST" action="{{ route($role->role. '.item_restore', ['item_id' => $item->id]) }}">
         @csrf
         <button class="block w-60 mx-auto my-6 p-2 bg-green-500 border border-green-500 rounded-lg text-lg text-white hover:bg-white hover:text-green-500">
           元に戻す
@@ -20,7 +20,7 @@
       @endif
     </div>
     <div class="w-full md:w-3/5 md:pl-16 mt-12">
-      <a href="{{ route('owner.user', ['user_id' => $item->user->id]) }}" class="flex items-center w-64 mx-auto md:mx-8 space-x-8">
+      <a href="{{ route($role->role. '.user', ['user_id' => $item->user->id]) }}" class="flex items-center w-64 mx-auto md:mx-8 space-x-8">
         <img src="{{ asset('storage/image/'. $item->user->profile->getUrl()) }}" class="w-20 h-20 rounded-full object-cover">
         <h2 class="text-xl font-bold -translate-y-1/4">{{ $item->user->name }}</h2>
       </a>

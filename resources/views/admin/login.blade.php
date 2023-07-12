@@ -1,7 +1,7 @@
 <x-owner.auth-layout>
   <x-auth-session-status :status="session('status')" />
-  <h1 class="mb-8 text-2xl font-extrabold">ログイン</h1>
-  <p class="mb-8">オーナー</p>
+  <h1 class="text-2xl font-extrabold">ログイン</h1>
+  <p class="mb-8">管理人</p>
 
   <form class="w-full" method="POST" action="{{ route('admin.login') }}">
     @csrf
