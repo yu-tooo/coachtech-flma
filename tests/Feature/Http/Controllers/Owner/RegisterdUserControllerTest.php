@@ -22,7 +22,7 @@ class RegisterdUserControllerTest extends TestCase
     }
 
     /** @test */
-    function owner_registration_validate()
+    function owner_registration_validate() :void
     {
         $url = route('owner.register');
         $admin = Admin::factory()->create();

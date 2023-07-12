@@ -19,7 +19,7 @@ class AuthenticateTest extends TestCase
     }
 
     /** @test */
-    function owner_login_validate()
+    function owner_login_validate(): void
     {
         $url = route('owner.login');
         Owner::factory()->create([
