@@ -1,5 +1,5 @@
 <x-owner.main-layout :ownerName="$ownerName">
-  <h1 class="text-lg font-bold mb-4 text-center">商品一覧</h1>
+  <h1 class="text-xl font-bold mb-4 text-center">商品一覧</h1>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-8">
     @foreach($items as $item)
     <a href="{{ route('owner.item_detail', ['item_id' => $item->id]) }}">
