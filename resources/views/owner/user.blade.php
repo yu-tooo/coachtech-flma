@@ -11,7 +11,10 @@
     <x-owner.readonly labelName='建物' :value="$user->profile->getBuilding()" />
 
     @auth('admin')
-    <button class="block bg-red-500 border border-red-500 p-2 mt-4 w-1/2 rounded-md text-white mx-auto hover:bg-white hover:text-red-500">このユーザを削除する</button>
+    <form method="POST" action="{{ route($role->role. '.user_delete', ['user_id' => $user->id]) }}">
+      @csrf
+      <button class="block bg-red-500 border border-red-500 p-2 mt-4 w-1/2 rounded-md text-white mx-auto hover:bg-white hover:text-red-500">このユーザを削除する</button>
+    </form>
     @endauth
   </div>
 </x-owner.main-layout>

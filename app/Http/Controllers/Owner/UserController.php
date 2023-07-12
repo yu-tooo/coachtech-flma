@@ -21,4 +21,9 @@ class UserController extends Controller
         $user = User::find($user_id);
         return view('owner.user', compact('role', 'user'));
     }
+
+    public function destroy()
+    {
+        dd('ok');
+    }
 }

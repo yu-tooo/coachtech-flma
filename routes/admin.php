@@ -21,6 +21,9 @@ Route::middleware('auth:admin')->group(function () {
   Route::get('user/detail/{user_id}', [UserController::class, 'detail'])
   ->name('user');
 
+  Route::post('user/delete/{user_id}', [UserController::class, 'destroy'])
+  ->name('user_delete');
+
   Route::get('/item', [ItemController::class, 'index'])
   ->name('items');
 
