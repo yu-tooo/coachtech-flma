@@ -13,28 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Owner::factory([
-            'name' => '田中瑠偉',
-            'email' => 'owner@example.com'
-        ])->create();
         \App\Models\Admin::factory([
-            'name' => '森田悠斗',
+            'name' => '山田太郎',
             'email' => 'admin@example.com'
         ])->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        
         $this->call([
-            UserSeeder::class,
-            ProfileSeeder::class,
-            ItemSeeder::class,
-            LikeSeeder::class,
-            CommentSeeder::class,
-            ConditionSeeder::class,
-            CategoryitemSeeder::class,
-            CategorySeeder::class,
+            
         ]);
     }
 }
