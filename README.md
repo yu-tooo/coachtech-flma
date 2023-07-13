@@ -86,8 +86,14 @@ owner: 下位管理者
 8. php artisan storage:link
 9. npm install
 10. npm run build
-11. php artisan migrate
+11. php artisan migrate --seed
 12. php artisan serve
 
 ### テスト
 1. php artisan test
+
+## テストユーザー(初期データ)
+
+#### admin (上位管理者)  
+email： admin@example.com  
+password： password1234

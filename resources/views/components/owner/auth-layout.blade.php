@@ -14,7 +14,7 @@
 <body>
   <header class="flex items-center justify-between px-4 h-12 bg-black">
     <div class="flex items-center">
-      <a href="{{ route('owner.home') }}">
+      <a href="{{ route('user.home') }}">
         <x-application-logo />
       </a>
     </div>
