@@ -24,8 +24,24 @@ coachtechブランドのアイテムを出品する
 - 出品
 - 購入
 - 配送先変更
+
+### 管理画面
+admin: 上位管理者  
+owner: 下位管理者
+- ログイン(owner, admin)
+- ユーザ一覧取得(owner, admin)
+- ユーザ詳細取得(owner, admin)
+- ユーザ削除(admin)
+- 商品一覧取得(owner, admin)
+- 商品詳細取得(owner, admin)
+- 商品削除(owner, admin)
+- owner一覧(admin)
+- owner登録(admin)
+- owner削除(admin)
+
 ### テスト
-- ユーザ単体テスト
+- ユーザ画面テスト
+- 管理画面テスト
 
 ## 使用技術（実行環境）
 - Laravel 9.x
@@ -51,6 +67,10 @@ coachtechブランドのアイテムを出品する
 ![Alt text](storage/image/categoriesTable.png)
 
 ![Alt text](storage/image/category_itemTable.png)
+
+![Alt text](storage/image/ownersTable.png)
+
+![Alt text](storage/image/adminsTable.png)
 
 ## ER図
 ![Alt text](storage/image/ER_figure.drawio.png)
