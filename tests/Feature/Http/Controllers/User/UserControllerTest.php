@@ -19,7 +19,7 @@ class UserControllerTest extends TestCase
         $user = User::factory()->create(['id' => 1]);
 
         $this->actingAs($user, 'users')->get(route('user.mypage'))
-        ->assertStatus(200)->assertSee('item5');
+        ->assertStatus(200)->assertSee('item2');
     }
 
     /** @test */

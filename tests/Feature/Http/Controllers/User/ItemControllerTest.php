@@ -19,11 +19,11 @@ class ItemControllerTest extends TestCase
     function index_view(): void
     {
         $this->seed(ItemSeeder::class);
-        $this->get(route('user.home'))->assertStatus(200)->assertSee('item12');
+        $this->get(route('user.home'))->assertStatus(200)->assertSee('item6');
 
         $this->get(route('user.home', [
-            'name' => 'ネック'
-        ]))->assertStatus(200)->assertSee('item7')->assertDontSee('item12');
+            'name' => 'ペン'
+        ]))->assertStatus(200)->assertSee('item2')->assertDontSee('item6');
     }
 
     /** @test */
@@ -34,7 +34,7 @@ class ItemControllerTest extends TestCase
 
         $this->actingAs($user, 'users')->get(route('user.home'))
         ->assertSee('item1')
-        ->assertDontSee('item5');
+        ->assertDontSee('item2');
     }
 
     /** @test */
@@ -59,7 +59,7 @@ class ItemControllerTest extends TestCase
     {
         $this->seed(ProfileSeeder::class);
         $withProfileUser = User::factory()->create(['id' => 1]);
-        $withoutProfileUser = User::factory()->create(['id' => 10]);
+        $withoutProfileUser = User::factory()->create(['id' => 6]);
 
         $this->get(route('user.sell'))->assertRedirectToRoute('user.login');
 
