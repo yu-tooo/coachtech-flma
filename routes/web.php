@@ -28,6 +28,8 @@ Route::middleware('auth:users')->group(function () {
   ->name('comment');
 
   Route::post('/item/comment/{item_id}', [CommentController::class, 'create']);
+
+  Route::post('/item/comment/delete/{item_id}/{comment_id}', [CommentController::class, 'destroy'])->name('comment_delete');
   
   Route::post('/item/like/{item_id}', [LikeController::class, 'create'])
   ->name('like');

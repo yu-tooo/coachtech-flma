@@ -28,4 +28,10 @@ class CommentController extends Controller
         ]);
         return redirect(route('user.comment', ['item_id' => $item_id]));
     }
+
+    public function destroy($item_id, $comment_id)
+    {
+        Comment::find($comment_id)->delete();
+        return redirect(route('user.comment', ['item_id' => $item_id]));
+    }
 }

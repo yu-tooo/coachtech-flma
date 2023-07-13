@@ -36,10 +36,16 @@
 
     @foreach($comments as $comment)
     <div class="mt-4 w-full">
-      <p class="flex items-end">
+      <div class="flex items-end">
         <img class="w-8 h-8 rounded-full mr-4" src="{{ asset('storage/image/'. $comment->user->profile->getUrl()) }}">
         {{ $comment->user->getName()}}
-      </p>
+        @if(Auth::id() == $comment->user->id)
+        <form method="POST" action="{{ route('user.comment_delete', ['item_id' => $item->id, 'comment_id' => $comment->id]) }}">
+          @csrf
+          <button class="ml-2"><x-trash_can-icon class="translate-y-1.5" /></button>
+        </form>
+        @endif
+      </div>
       <input class="w-full my-2 p-2 bg-gray-200 rounded-sm outline-none" value="{{ $comment->comment }}" readonly>
     </div>
     @endforeach
