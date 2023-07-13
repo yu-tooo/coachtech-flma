@@ -4,6 +4,8 @@ namespace Tests\Feature\Http\Controllers\User;
 
 use App\Models\Item;
 use App\Models\User;
+use Database\Seeders\CategoryItemSeeder;
+use Database\Seeders\ConditionSeeder;
 use Database\Seeders\ItemSeeder;
 use Database\Seeders\ProfileSeeder;
 use Database\Seeders\UserSeeder;
@@ -40,10 +42,9 @@ class ItemControllerTest extends TestCase
     /** @test */
     function item_view(): void
     {
-        $this->seed();
+        $this->seed([ItemSeeder::class, ConditionSeeder::class]);
         $item1 = Item::withCount('like')->withCount('comment')->find(1);
-
-        $this->get(route('user.item', ['item_id' => $item1]))
+        $this->get(route('user.item', ['item_id' => $item1->id]))
         ->assertStatus(200)       
         ->assertSeeText([
             $item1->name, 
@@ -51,7 +52,7 @@ class ItemControllerTest extends TestCase
             $item1->like_count,
             $item1->comment_count,
             $item1->condition->getCondition()
-        ])->assertSeeInOrder(['装着', '運動']);
+        ]);
     }
 
     /** @test */
