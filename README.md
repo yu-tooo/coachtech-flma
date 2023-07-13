@@ -88,3 +88,6 @@ owner: 下位管理者
 10. npm run build
 11. php artisan migrate
 12. php artisan serve
+
+### テスト
+1. php artisan test
