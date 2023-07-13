@@ -13,7 +13,7 @@
       @else
       <form method="POST" action="{{ route($role->role. '.item_restore', ['item_id' => $item->id]) }}">
         @csrf
-        <button class="block w-60 mx-auto my-6 p-2 bg-green-500 border border-green-500 rounded-lg text-lg text-white hover:bg-white hover:text-green-500">
+        <button class="block w-60 mx-auto my-6 p-2 bg-green-600 border border-green-600 rounded-lg text-lg text-white hover:bg-white hover:text-green-600">
           元に戻す
         </button>
       </form>

@@ -46,14 +46,30 @@ class RegisterdUserControllerTest extends TestCase
     /** @test */
     function owner_new_owners_can_register(): void
     {
-        $admin = Admin::factory()->create();
+        $admin = Admin::factory()->make();
         $response = $this->actingAs($admin, 'admin')->post(route('owner.register'), [
             'name' => 'Test Owner',
             'email' => 'test@example.com',
             'password' => 'password',
         ]);
 
-        $this->assertAuthenticated('owners');
-        $response->assertRedirect(RouteServiceProvider::OWNER_HOME);
+        $response->assertRedirectToRoute('owner.register');
+    }
+
+    /** @test */
+    function owner_owners_can_be_deleted(): void
+    {
+        $owner = Owner::factory()->create();
+        $admin = Admin::factory()->make();
+        $response = $this->actingAs($admin, 'admin')->post(route('owner.delete', [
+            'owner_id' => $owner->id
+        ]));
+
+        $this->assertDatabaseMissing('owners', [
+            'id' => $owner->id,
+            'name' => $owner->name,
+            'email' => $owner->email
+        ]);
+        $response->assertRedirectToRoute('owner.register');
     }
 }

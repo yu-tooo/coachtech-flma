@@ -21,7 +21,8 @@ class RegisteredUserController extends Controller
     public function create(): View
     {
         $role = Auth::guard('admin')->user();
-        return view('admin.register', compact('role'));
+        $owners = Owner::get();
+        return view('admin.register', compact('role', 'owners'));
     }
 
     /**
@@ -37,16 +38,18 @@ class RegisteredUserController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        $user = Owner::create([
+        Owner::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        return redirect(route('owner.register'));
+    }
 
-        Auth::guard('owners')->login($user);
-
-        return redirect(RouteServiceProvider::OWNER_HOME);
+    public function destroy($owner_id)
+    {
+        Owner::find($owner_id)->delete();
+        return redirect(route('owner.register'));
     }
 }
