@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Owner</title>
-</head>
-<body>
-  <h1>Owner Page</h1>
-  <form action="{{ route('owner.register') }}">
-    <button>登録画面</button>
-  </form>
-  <form action="{{ route('owner.login') }}">
-    <button>ログイン画面</button>
-  </form>
-  <form method="POST" action="{{ route('owner.logout') }}">
-    @csrf
-    <button>ログアウト</button>
-  </form>
-</body>
-</html>
+<x-owner.main-layout :role="$role">
+  <h1 class="text-xl font-bold mb-8 text-center">ユーザ一覧</h1>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-8">
+    @foreach($users as $user)
+    <a href="{{ route($role->role. '.user', ['user_id' => $user->id]) }}" class="flex flex-col items-center">
+      <img src="{{ asset('storage/image/'. $user->profile->getUrl()) }}" class="w-36 h-36 rounded-full object-cover mb-2">
+      {{ $user->name }}
+    </a>
+    @endforeach
+  </div>
+</x-owner.main-layout>

@@ -20,11 +20,14 @@ class ItemController extends Controller
         $items = Item::where('user_id', '!=', $user_id)
         ->where('name', 'LIKE', '%'. $request->name. '%')
         ->doesntHave('sold_items')
+        ->where('delete_flag', 0)
         ->get();
 
         $likedItems = Item::whereHas('likes', function($query) use($user_id) {
             $query->where('user_id', $user_id);
-        })->doesntHave('sold_items')->get();
+        })->doesntHave('sold_items')
+        ->where('delete_flag', 0)
+        ->get();
 
         return view('user.index', ['items' => $items, 'l_items' => $likedItems]);
     }

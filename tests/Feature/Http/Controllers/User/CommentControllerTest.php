@@ -14,7 +14,7 @@ class CommentControllerTest extends TestCase
 {
     use RefreshDatabase;
     /** @test */
-    function comment_view_only_see_applicable_items() 
+    function comment_view_only_see_applicable_items(): void
     {
         $this->seed([ItemSeeder::class, ProfileSeeder::class]);
         $item = Item::first();
@@ -41,7 +41,7 @@ class CommentControllerTest extends TestCase
     }
 
     /** @test */
-    function create_new_comment() 
+    function create_new_comment(): void
     {
         $this->seed([ItemSeeder::class, ProfileSeeder::class]);
         $item = Item::first();

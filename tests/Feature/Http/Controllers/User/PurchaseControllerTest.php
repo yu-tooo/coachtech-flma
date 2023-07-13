@@ -13,7 +13,7 @@ class PurchaseControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function purchase_view()
+    function purchase_view(): void
     {
         $this->seed([ItemSeeder::class, ProfileSeeder::class]);
         $withProfileUser = User::factory()->create(['id' => 1]);
@@ -31,7 +31,7 @@ class PurchaseControllerTest extends TestCase
     }
 
     /** @test */
-    function can_purchase() 
+    function can_purchase(): void
     {
         $user = User::factory()->create(['id' => 4]);
         $this->actingAs($user, 'users')->post(route('user.purchase', ['item_id' => 2]))
@@ -44,7 +44,7 @@ class PurchaseControllerTest extends TestCase
     }
 
     /** @test */
-    function address_view() 
+    function address_view(): void
     {
         $this->seed([ItemSeeder::class, ProfileSeeder::class]);
         $withProfileUser = User::factory()->create(['id' => 1]);
@@ -68,7 +68,7 @@ class PurchaseControllerTest extends TestCase
     }
 
     /** @test */
-    function address_validate() 
+    function address_validate(): void
     {
         $this->login();
         $this->post(route('user.address', ['item_id' => 1]))->assertRedirect();
@@ -88,7 +88,7 @@ class PurchaseControllerTest extends TestCase
     }
 
     /** @test */
-    function can_change_address() 
+    function can_change_address(): void
     {
         $this->seed(ProfileSeeder::class);
         $user = User::factory()->create(['id' => 1]);

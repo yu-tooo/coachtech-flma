@@ -14,15 +14,13 @@ class ProfileSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <=4; $i++) {
-            $param = [];
-            $param['user_id'] = $i;
-            if($i <= 3) {
-                $param['img_url'] = 'users/user'. $i. '.jpg';
-            }
-            $param['postcode'] = mt_rand(1000000, 9999999);
-            $param['address'] = "東京都港区台場2-4-". $i;
+    
+            $param = [
+                'user_id' => 1,
+                'postcode' => mt_rand(1000000, 9999999),
+                'address' => "東京都港区台場2-4-1",
+                'building' => 'towntowr'
+            ];
             Profile::create($param);
-        }
     }
 }

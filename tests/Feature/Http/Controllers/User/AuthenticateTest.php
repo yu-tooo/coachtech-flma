@@ -13,7 +13,7 @@ class AuthenticateTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function login_view(): void
+    function login_view(): void
     {
         $this->get(route('user.login'))->assertStatus(200);
     }
@@ -48,7 +48,7 @@ class AuthenticateTest extends TestCase
     }
 
     /** @test */
-    public function can_authenticate(): void
+    function can_authenticate(): void
     {
         $user = User::factory()->create();
 
@@ -62,7 +62,7 @@ class AuthenticateTest extends TestCase
     }
 
     /** @test */
-    public function can_not_authenticate_with_wrong_password(): void
+    function can_not_authenticate_with_wrong_password(): void
     {
         $user = User::factory()->create();
 

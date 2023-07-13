@@ -4,10 +4,11 @@ namespace Tests\Feature\Models;
 
 use App\Models\Item;
 use App\Models\Condition;
-use Database\Seeders\CommentSeeder;
+use App\Models\User;
 use Database\Seeders\ConditionSeeder;
 use Database\Seeders\ItemSeeder;
 use Database\Seeders\LikeSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -30,9 +31,17 @@ class ItemTest extends TestCase
     }
 
     /** @test */
-    function sold_items_relation() :void
+    function comments_relation(): void
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
+        $item = Item::first();
+        $this->assertInstanceOf(Collection::class, $item->comments);
+    }
+
+    /** @test */
+    function sold_items_relation():void
+    {
+        $this->seed(ItemSeeder::class);
         $item = Item::first();
         $this->assertInstanceOf(Collection::class, $item->sold_items);
     }
@@ -40,7 +49,7 @@ class ItemTest extends TestCase
     /** @test */
     function categories_relation(): void
     {
-        $this->seed([ItemSeeder::class]);
+        $this->seed(ItemSeeder::class);
         $item = Item::first();
         $this->assertInstanceOf(Collection::class, $item->sold_items);
     }
@@ -51,5 +60,13 @@ class ItemTest extends TestCase
         $this->seed([ItemSeeder::class, ConditionSeeder::class]);
         $item = Item::first();
         $this->assertInstanceOf(Condition::class, $item->condition);
+    }
+
+    /** @test */
+    function user_relation(): void 
+    {
+        $this->seed([ItemSeeder::class, UserSeeder::class]);
+        $item = Item::first();
+        $this->assertInstanceOf(User::class, $item->user);
     }
 }

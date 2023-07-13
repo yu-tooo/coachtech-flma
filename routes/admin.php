@@ -1,37 +1,43 @@
 <?php
 
-// use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\RegisteredUserController;
+use App\Http\Controllers\Owner\UserController;
+use App\Http\Controllers\Owner\ItemController;
 use App\Http\Controllers\Admin\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', [AdminController::class, 'index'])->middleware('auth:admin');
-
 
 Route::middleware('guest:admin')->group(function () {
-  Route::get('register', [RegisteredUserController::class, 'create'])
-    ->name('register');
-
-  Route::post('register', [RegisteredUserController::class, 'store']);
-
   Route::get('login', [AuthenticatedSessionController::class, 'create'])
-    ->name('login');
-
+  ->name('login');
+  
   Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
 
+Route::middleware('auth:admin')->group(function () {
+  Route::get('/', [UserController::class, 'index'])
+  ->name('home');
 
-Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-  ->name('logout')->middleware('auth:admin');
+  Route::get('user/detail/{user_id}', [UserController::class, 'detail'])
+  ->name('user');
+
+  Route::post('user/delete/{user_id}', [UserController::class, 'destroy'])
+  ->name('user_delete');
+
+  Route::get('/item', [ItemController::class, 'index'])
+  ->name('items');
+
+  Route::get('item/detail/{item_id}', [ItemController::class, 'detail'])
+  ->name('item_detail');
+
+  Route::post('item/delete/{item_id}', [ItemController::class, 'destroy'])
+  ->name('item_delete');
+
+  Route::post('item/restore/{item_id}', [ItemController::class, 'restore'])
+  ->name('item_restore');
+  
+  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+  ->name('logout');
+});
+
+

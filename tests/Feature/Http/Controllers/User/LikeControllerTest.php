@@ -14,10 +14,10 @@ class LikeControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function create_like() 
+    function create_like(): void
     {
         $this->seed(ItemSeeder::class);
-        $item = Item::find(10);
+        $item = Item::find(6);
         $this->post(route('user.like', ['item_id' => $item->id]))
         ->assertRedirectToRoute('user.login');
 
@@ -28,22 +28,22 @@ class LikeControllerTest extends TestCase
 
         $this->assertDatabaseHas('likes', [
             'user_id' => 5,
-            'item_id' => 10
+            'item_id' => 6
         ]);
     }
 
     /** @test */
-    function destroy_like()
+    function destroy_like(): void
     {
         $this->seed(ItemSeeder::class);
-        $item = Item::find(10);
+        $item = Item::find(6);
         $this->post(route('user.unlike', ['item_id' => $item->id]))
         ->assertRedirectToRoute('user.login');
         
-        Like::create(['user_id' => 5, 'item_id' => 10]);
+        Like::create(['user_id' => 5, 'item_id' => 6]);
         $this->assertDatabaseHas('likes', [
             'user_id' => 5,
-            'item_id' => 10
+            'item_id' => 6
         ]);
 
         $user = User::factory()->create(['id' => 5]);
