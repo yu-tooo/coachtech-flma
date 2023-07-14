@@ -29,6 +29,7 @@ coachtechブランドのアイテムを出品する
 admin: 上位管理者  
 owner: 下位管理者
 - ログイン(owner, admin)
+- ログアウト(owner, admin)
 - ユーザ一覧取得(owner, admin)
 - ユーザ詳細取得(owner, admin)
 - ユーザ削除(admin)
