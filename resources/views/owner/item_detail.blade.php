@@ -40,7 +40,7 @@
       @foreach($item->comments as $comments)
       <div class="flex items-end mb-4">
         <input class="w-11/12 py-1.5 px-2 bg-gray-200 rounded-sm outline-none" value="{{ $comments->comment }}" readonly>
-        <form method="POST" action="" class="w-1/12 text-center">
+        <form method="POST" action="{{ route($role->role. '.comment_delete', ['comment_id' => $comments->id])}}" class="w-1/12 text-center">
           @csrf
           <button><x-trash_can-icon /></button>
         </form>

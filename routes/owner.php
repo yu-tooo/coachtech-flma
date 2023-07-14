@@ -3,6 +3,7 @@
 use App\Http\Controllers\Owner\UserController;
 use App\Http\Controllers\Owner\RegisteredUserController;
 use App\Http\Controllers\Owner\AuthenticatedSessionController;
+use App\Http\Controllers\Owner\CommentController;
 use App\Http\Controllers\Owner\ItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::middleware('auth:owners')->group(function() {
 
   Route::post('item/restore/{item_id}', [ItemController::class, 'restore'])
     ->name('item_restore');
+
+  Route::post('coment/delete/{comment_id}', [CommentController::class, 'destroy'])
+  ->name('comment_delete');
 
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
       ->name('logout');
