@@ -19,7 +19,14 @@ class DatabaseSeeder extends Seeder
         ])->create();
         
         $this->call([
-            
+            // UserSeeder::class,
+            // ItemSeeder::class,
+            // CategoryItemSeeder::class,
+            // CategorySeeder::class,
+            // CommentSeeder::class,
+            // ConditionSeeder::class,
+            // LikeSeeder::class,
+            // ProfileSeeder::class,
         ]);
     }
 }

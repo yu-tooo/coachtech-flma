@@ -1,5 +1,5 @@
 <x-owner.main-layout :role="$role">
-  <div class="block md:flex md:justify-between py-4 px-0 sm:px-8">
+  <div class="block md:flex md:justify-between py-4 px-0 sm:px-12 md:px-0 lg:px-8">
     <div class="w-4/5 sm:w-3/5 md:w-2/5 mx-auto">
       <h1 class="text-xl font-bold mb-2 ml-2">{{ $item->name }}</h1>
       <img src="{{ asset('storage/image/'. $item->img_url) }}" class="shadow-md">
@@ -37,11 +37,15 @@
         </div>
       </div>
       <h2 class="text-lg font-semibold">コメント</h2>
-      <div class="w-full lg:w-10/12">
-        @foreach($item->comments as $comments)
-        <input class="w-full py-1.5 px-2 mb-4 bg-gray-200 rounded-sm outline-none" value="{{ $comments->comment }}" readonly>
-        @endforeach
+      @foreach($item->comments as $comments)
+      <div class="flex items-end mb-4">
+        <input class="w-11/12 py-1.5 px-2 bg-gray-200 rounded-sm outline-none" value="{{ $comments->comment }}" readonly>
+        <form method="POST" action="{{ route($role->role. '.comment_delete', ['comment_id' => $comments->id])}}" class="w-1/12 text-center">
+          @csrf
+          <button><x-trash_can-icon /></button>
+        </form>
       </div>
+      @endforeach
     </div>
   </div>
 </x-owner.main-layout>

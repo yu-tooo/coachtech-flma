@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Owner\UserController;
 use App\Http\Controllers\Owner\ItemController;
+use App\Http\Controllers\Owner\CommentController;
 use App\Http\Controllers\Admin\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +35,9 @@ Route::middleware('auth:admin')->group(function () {
 
   Route::post('item/restore/{item_id}', [ItemController::class, 'restore'])
   ->name('item_restore');
+
+  Route::post('coment/delete/{comment_id}', [CommentController::class, 'destroy'])
+  ->name('comment_delete');
   
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
   ->name('logout');

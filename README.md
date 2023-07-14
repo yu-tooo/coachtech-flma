@@ -6,7 +6,7 @@
 coachtechブランドのアイテムを出品する
 
 ## 機能一覧
-### ユーザ
+### ユーザ画面
 - 会員登録
 - ログイン
 - ログアウト
@@ -35,6 +35,7 @@ owner: 下位管理者
 - 商品一覧取得(owner, admin)
 - 商品詳細取得(owner, admin)
 - 商品削除(owner, admin)
+- コメント削除(owner, admin)
 - owner一覧(admin)
 - owner登録(admin)
 - owner削除(admin)
