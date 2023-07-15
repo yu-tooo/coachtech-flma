@@ -8,6 +8,7 @@
       </div>
       <x-owner.readonly labelName='登録番号' :value="$user->id" />
       <x-owner.readonly labelName='名前' :value="$user->name" />
+      <x-owner.readonly labelName='メールアドレス' :value="$user->email" />
       <x-owner.readonly labelName='郵便番号' :value="$user->profile->getPostCode()" />
       <x-owner.readonly labelName='住所' :value="$user->profile->getAddress()" />
       <x-owner.readonly labelName='建物' :value="$user->profile->getBuilding()" />
