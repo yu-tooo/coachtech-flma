@@ -20,18 +20,21 @@
       </form>
       @endauth
     </div>
-    <div id="modal" @click="toggle" class="fixed w-full h-screen top-0 left-0 bg-gray-500 bg-opacity-50 hidden">
+    <div id="modal" @click="toggle" class="fixed w-full h-screen top-0 left-0 bg-gray-500 bg-opacity-80 hidden">
       <div @click="toggle" class="absolute w-96 max-w-full top-20 right-0 sm:right-10 md:right-20 bg-white border rounded-lg">
         <h2 class="px-4 py-2 text-lg bg-gray-900 text-white rounded-t-lg">
           メッセージ
         </h2>
-        <div class="flex items-center px-4 pt-2">
-          <label for="title">件名</label>
-          <input type="text" id="title" class="w-10/12 h-8 border-none focus:ring-0">
-        </div>
-        <span class="block w-11/12 h-1 mx-auto bg-gray-100 mb-1"></span>
-        <textarea name="" cols="30" rows="10" class="w-full resize-none border-none focus:ring-0 px-4"></textarea>
-        <button class="w-full py-2 bg-gray-800 text-white rounded-b-lg">送信</button>
+        <form method="POST" action="{{ route($role->role. '.email', ['to' => $user->email, 'name' => $role->name]) }}">
+          @csrf
+          <div class="flex items-center px-4 pt-2">
+            <label for="title">件名</label>
+            <input type="text" id="title" name="title" class="w-10/12 h-8 border-none focus:ring-0">
+          </div>
+          <span class="block w-11/12 h-1 mx-auto bg-gray-100 mb-1"></span>
+          <textarea name="body" cols="30" rows="10" class="w-full resize-none border-none focus:ring-0 px-4"></textarea>
+          <button class="w-full py-2 bg-gray-800 text-white rounded-b-lg">送信</button>
+        </form>
       </div>
     </div>
   </div>

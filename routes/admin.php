@@ -21,6 +21,9 @@ Route::middleware('auth:admin')->group(function () {
   Route::get('user/detail/{user_id}', [UserController::class, 'detail'])
   ->name('user');
 
+  Route::post('user/email/{to}/{name}', [UserController::class, 'email'])
+  ->name('email');
+
   Route::post('user/delete/{user_id}', [UserController::class, 'destroy'])
   ->name('user_delete');
 
