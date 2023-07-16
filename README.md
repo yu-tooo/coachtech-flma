@@ -37,6 +37,7 @@ owner: 下位管理者
 - 商品詳細取得(owner, admin)
 - 商品削除(owner, admin)
 - コメント削除(owner, admin)
+- メール送信(owner, admin)
 - owner一覧(admin)
 - owner登録(admin)
 - owner削除(admin)
@@ -99,3 +100,6 @@ owner: 下位管理者
 #### admin (上位管理者)  
 email： admin@example.com  
 password： password1234
+
+## その他
+mail送信機能の利用には.envファイルに設定が必要です。
