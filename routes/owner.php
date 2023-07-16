@@ -22,6 +22,9 @@ Route::middleware('auth:owners')->group(function() {
   Route::get('user/detail/{user_id}', [UserController::class, 'detail'])
     ->name('user');
 
+  Route::post('user/email/{to}/{name}', [UserController::class, 'email'])
+  ->name('email');
+
   Route::get('/item', [ItemController::class, 'index'])
     ->name('items');
 

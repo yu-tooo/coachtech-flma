@@ -50,7 +50,7 @@
 
     <x-user.form-group name="price" labelName="販売価格" class="pl-8 mb-0" />
 
-    <span class="inline-block translate-x-2 pt-3 -translate-y-20 text-lg">￥</span>
+    <span class="inline-block pt-3 translate-x-2 -translate-y-20 text-lg">￥</span>
     <x-input-error :messages="$errors->get('price')" class="-translate-y-16" />
 
 
