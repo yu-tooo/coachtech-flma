@@ -13,7 +13,7 @@
     </div>
     <x-input-error :messages="$errors->get('image')" class="-translate-y-12" />
 
-    <x-user.partition name="商品の詳細" />
+    <x-user.partition name="商品の詳細" class="my-4" />
     <div x-data="addInput" class="mb-8">
       <label for="category1" class="block w-full text-lg font-bold cursor-pointer hover:text-gray-600">
         カテゴリー
@@ -38,7 +38,7 @@
     <x-user.form-group name="condition" labelName="商品の状態" />
     <x-input-error :messages="$errors->get('condition')" class="-translate-y-8" />
 
-    <x-user.partition name="商品名と説明" />
+    <x-user.partition name="商品名と説明" class="my-4" />
 
     <x-user.form-group name="productName" labelName="商品名" />
     <x-input-error :messages="$errors->get('productName')" class="-translate-y-8" />
@@ -46,15 +46,19 @@
     <x-user.form-textarea name="description" labelName="商品の説明" />
     <x-input-error :messages="$errors->get('description')" class="-translate-y-8" />
 
-    <x-user.partition name="販売価格" />
+    <x-user.partition name="販売価格" class="my-4" />
 
     <x-user.form-group name="price" labelName="販売価格" class="pl-8 mb-0" />
 
     <span class="inline-block pt-3 translate-x-2 -translate-y-20 text-lg">￥</span>
     <x-input-error :messages="$errors->get('price')" class="-translate-y-16" />
 
+    <x-user.partition name="参考" class="-mt-8 mb-4" />
 
-    <div class="w-full -mt-2 mb-8">
+    <x-user.form-group name="url" labelName="URL (任意)" />
+    <x-input-error :messages="$errors->get('url')" class="-translate-y-8" />
+
+    <div class="w-full my-4">
       <x-user.button name="出品する" />
     </div>
   </form>

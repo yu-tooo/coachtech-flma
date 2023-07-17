@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('price', 255);
             $table->string('description', 255);
             $table->string('img_url', 255);
+            $table->string('url', 255)->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('condition_id');
             $table->boolean('delete_flag')->default(0);

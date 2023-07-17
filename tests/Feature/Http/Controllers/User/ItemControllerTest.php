@@ -90,10 +90,12 @@ class ItemControllerTest extends TestCase
         
         $this->post(route('user.sell', [
             'price' => "10,000",
-            'description' => "20文字以下"
+            'description' => "20文字以下",
+            'url' => 'url形式になってない'
         ]))->assertInvalid([
             'price' => '販売価格には、数字を入力してください',
-            'description' => '商品の説明は、20文字以上で入力してください'
+            'description' => '商品の説明は、20文字以上で入力してください',
+            'url' => 'URLの形式で入力してください'
         ]);
     }
 }

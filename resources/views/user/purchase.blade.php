@@ -1,7 +1,9 @@
 <x-user-purchase>
   <x-slot name="first">
     <div class="flex">
-      <img class="w-32 mx-4 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}">
+      <a href="{{ route('user.item', ['item_id' => $item->id]) }}">
+        <img class="w-32 mx-4 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}">
+      </a>
       <div class="p-2 ml-4">
         <h1 class="pb-4 font-bold text-lg">{{ $item->name }}</h1>
         <p>￥{{ number_format($item->price) }}</p>

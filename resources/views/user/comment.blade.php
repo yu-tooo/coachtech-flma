@@ -1,6 +1,8 @@
 <x-user-item-detail>
   <x-slot name="first">
-    <img class="block mx-auto w-96" src="{{ asset('/storage/image/'. $item->img_url) }}" alt="画像が見つかりません">
+    <a href="{{ route('user.item', ['item_id' => $item->id]) }}">
+      <img class="mx-auto w-96 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}" alt="画像が見つかりません">
+    </a>
   </x-slot>
 
   <x-slot name="second">
