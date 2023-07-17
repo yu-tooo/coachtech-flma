@@ -122,7 +122,7 @@ return [
     'timezone'             => ':attributeには、有効なゾーンを入力してください。',
     'unique'               => 'この:attributeは既に存在しています。',
     'uploaded'             => ':attributeのアップロードに失敗しました。',
-    'url'                  => ':attributeに正しい形式を入力してください。',
+    'url'                  => 'URLの形式で入力してください。',
     'uuid'                 => ':attributeに有効なUUIDを入力してください。',
 
     /*

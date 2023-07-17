@@ -32,7 +32,8 @@ class ItemsRequest extends FormRequest
             'description' => ['required', 'min:20'],
             'image' => ['required'],
             'categories.*' =>['required'],
-            'condition' => ['required']
+            'condition' => ['required'],
+            'url' => ['nullable', 'url']
         ];
     }
 }

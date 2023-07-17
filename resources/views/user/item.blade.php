@@ -1,6 +1,17 @@
 <x-user-item-detail>
   <x-slot name="first">
-    <img class="mx-auto w-96 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}" alt="画像が見つかりません">
+    <a href="{{ route('user.item', ['item_id' => $item->id]) }}">
+      <img class="mx-auto w-96 shadow-md" src="{{ asset('/storage/image/'. $item->img_url) }}" alt="画像が見つかりません">
+    </a>
+    @if($item->url)
+    <div class="mt-12 mb-4 w-96 mx-auto pl-4">
+      {{QrCode::size(100)->generate($item->url)}}
+    </div>
+    <p class="flex items-center w-96 mx-auto text-lg font-medium">
+      <x-up_arrow-icon />
+      参考ページはこちら
+    </p>
+    @endif
   </x-slot>
 
   <x-slot name="second">
