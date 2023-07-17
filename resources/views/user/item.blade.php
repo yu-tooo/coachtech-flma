@@ -51,11 +51,11 @@
     </a>
 
     <h2 class="text-xl font-bold pt-8">商品説明</h2>
-    <p class="mt-4 whitespace-pre-wrap leading-4">{{ $item->description }}</p>
-    <h2 class=" text-xl font-bold pt-8">商品の情報</h2>
+    <p class="mt-4 w-full whitespace-pre-wrap leading-4 break-words">{{ $item->description }}</p>
+    <h2 class="text-xl font-bold pt-8">商品の情報</h2>
 
     <ul class="flex w-full space-x-8 mt-8">
-      <li class="text-lg font-bold whitespace-nowrap mb-2">カテゴリー</li>
+      <li class="text-lg font-bold mb-2">カテゴリー</li>
       <li>
         @foreach($categories as $category)
         <span class="inline-block bg-gray-300 rounded-2xl ml-1 px-8 mb-2">
@@ -66,7 +66,7 @@
     </ul>
 
     <ul class="flex space-x-8 mt-8 w-full">
-      <li class="text-lg font-bold whitespace-nowrap">商品の状態</li>
+      <li class="text-lg font-bold">商品の状態</li>
       <li>
         <span class="inline-block px-2">
           {{ $item->condition->getCondition()}}
