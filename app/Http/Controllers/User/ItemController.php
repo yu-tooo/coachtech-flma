@@ -43,8 +43,9 @@ class ItemController extends Controller
     {
         if (!Profile::where('user_id', Auth::guard('users')->id())->exists()) {
             return redirect(route('user.profile'));
-        } 
-        return view('user.sell');
+        }
+        $conditions = Condition::get();
+        return view('user.sell', ['conditions' => $conditions]);
     }
 
     public function sellCreate(ItemsRequest $request)
@@ -62,9 +63,6 @@ class ItemController extends Controller
             }
         }
         
-        Condition::create(['condition' => $request->condition]);
-        $condition_id = Condition::latest('id')->value('id');
-
         $item =Item::create([
             'name' => $request->productName,
             'price' => $request->price,
@@ -72,7 +70,7 @@ class ItemController extends Controller
             'img_url' => $img_url,
             'url' => $request->url,
             'user_id' => Auth::guard('users')->id(),
-            'condition_id' => $condition_id
+            'condition_id' => $request->condition
         ]);
         
         $item->categories()->sync($categories_id);

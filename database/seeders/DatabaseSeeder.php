@@ -18,13 +18,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com'
         ])->create();
         
+        $this->call(ConditionSeeder::class);
+
         $this->call([
             // UserSeeder::class,
             // ItemSeeder::class,
             // CategoryItemSeeder::class,
             // CategorySeeder::class,
             // CommentSeeder::class,
-            // ConditionSeeder::class,
             // LikeSeeder::class,
             // ProfileSeeder::class,
         ]);

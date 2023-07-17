@@ -35,7 +35,13 @@
       </div>
     </div>
 
-    <x-user.form-group name="condition" labelName="商品の状態" />
+    <label for="condition" class="block w-full text-lg font-bold cursor-pointer hover:text-gray-600">商品の状態</label>
+    <select name="condition" id="condition" class="w-full rounded-md mb-8 focus:border-black focus:ring-0">
+      <option hidden value="">選択してください</option>
+      @foreach($conditions as $condition)
+      <option value="{{ $condition->id }}">{{ $condition->condition }}</option>
+      @endforeach
+    </select>
     <x-input-error :messages="$errors->get('condition')" class="-translate-y-8" />
 
     <x-user.partition name="商品名と説明" class="my-4" />
