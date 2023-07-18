@@ -1,12 +1,12 @@
 <x-owner.main-layout :role="$role">
   <div x-data="email">
     <div class="mx-auto sm:w-4/5 md:w-3/5 lg:w-2/5 pb-4">
-      <h1 class="text-xl font-bold mb-4 text-center">プロフィール</h1>
+      <h1 class="text-xl font-bold mb-6 text-center">プロフィール</h1>
       <div class="relative w-fit mx-auto mb-2 px-12 ">
         <x-email-icon @click="toggle" class="absolute right-0 bottom-0 stroke-1 cursor-pointer" />
         <img src="{{ asset('storage/image/'. $user->profile->getUrl()) }}" class="w-36 h-36 rounded-full object-cover">
       </div>
-      <x-owner.readonly labelName='登録番号' :value="$user->id" />
+      <x-owner.readonly labelName='会員番号' :value="$user->id" />
       <x-owner.readonly labelName='名前' :value="$user->name" />
       <x-owner.readonly labelName='メールアドレス' :value="$user->email" />
       <x-owner.readonly labelName='郵便番号' :value="$user->profile->getPostCode()" />
