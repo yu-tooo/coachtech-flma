@@ -15,7 +15,7 @@
 
     <x-user.partition name="商品の詳細" class="my-4" />
     <div x-data="addInput" class="mb-8">
-      <label for="category1" class="block w-full text-lg font-bold cursor-pointer hover:text-gray-600">
+      <label for="category1" class="text-lg font-bold cursor-pointer hover:text-gray-600">
         カテゴリー
       </label>
       <input @click="plus = true" type="text" id="category1" class="w-full rounded-md focus:border-black focus:ring-0" name="categories[]">
@@ -54,12 +54,14 @@
 
     <x-user.partition name="販売価格" class="my-4" />
 
-    <x-user.form-group name="price" labelName="販売価格" class="pl-8 mb-0" />
+    <label class=" text-lg font-bold cursor-pointer hover:text-gray-600" for="price">販売価格</label>
+    <div class="flex items-center w-full rounded-md mb-8 border border-black">
+      <div class="pl-2 text-xl font-medium">￥</div>
+      <input type="text" id="price" class="w-full border-none rounded-md focus:ring-0" name="price">
+    </div>
+    <x-input-error :messages="$errors->get('price')" class="-translate-y-8" />
 
-    <span class="inline-block pt-3 translate-x-2 -translate-y-20 text-lg">￥</span>
-    <x-input-error :messages="$errors->get('price')" class="-translate-y-16" />
-
-    <x-user.partition name="参考" class="-mt-8 mb-4" />
+    <x-user.partition name="参考" class="my-4" />
 
     <x-user.form-group name="url" labelName="URL (任意)" />
     <x-input-error :messages="$errors->get('url')" class="-translate-y-8" />

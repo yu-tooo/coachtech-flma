@@ -26,7 +26,7 @@ class ItemSeeder extends Seeder
             $param['img_url'] = 'items/item'. strval($i + 1). '.jpg';
             $i < 3 ? $param['url'] = 'https://www.google.com/': null;
             $param['user_id'] = ($i + 1) % 2 + 1;
-            $param['condition_id'] = ($i + 2) % 5 + 1;
+            $param['condition_id'] = ($i + 2) % 4 + 1;
 
             Item::create($param);
         }
