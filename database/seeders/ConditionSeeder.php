@@ -14,9 +14,9 @@ class ConditionSeeder extends Seeder
      */
     public function run()
     {
-        $conditions = ['新品', '優良', '良好', '良い', '可'];
+        $conditions = ['新品', 'ほぼ新品', '良い', '可'];
 
-        for($i = 1; $i <= 5; $i++) {
+        for($i = 1; $i < 5; $i++) {
             $param = [];
             $param['condition'] = $conditions[$i - 1];
             Condition::create($param);
