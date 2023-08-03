@@ -17,17 +17,16 @@ class DatabaseSeeder extends Seeder
             'name' => '山田太郎',
             'email' => 'admin@example.com'
         ])->create();
-        
-        $this->call(ConditionSeeder::class);
 
         $this->call([
-            // UserSeeder::class,
-            // ItemSeeder::class,
-            // CategoryItemSeeder::class,
-            // CategorySeeder::class,
-            // CommentSeeder::class,
-            // LikeSeeder::class,
-            // ProfileSeeder::class,
+            ConditionSeeder::class,
+            UserSeeder::class,
+            ItemSeeder::class,
+            CategoryItemSeeder::class,
+            CategorySeeder::class,
+            CommentSeeder::class,
+            LikeSeeder::class,
+            ProfileSeeder::class,
         ]);
     }
 }
