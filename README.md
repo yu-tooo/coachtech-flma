@@ -141,7 +141,7 @@ php artisan storage:link
 npm install
 npm run build
 ```
-データベースの作成、データ挿入
+データベースの作成
 ```
 php artisan migrate
 ```
