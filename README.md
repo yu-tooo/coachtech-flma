@@ -80,33 +80,72 @@ owner: 下位管理者
 ![Alt text](storage/image/ER_figure.drawio.png)
 
 ## 環境構築
-1. git init
-2. git clone https://github.com/yu-tooo/coachtech-flma.git
-3. cd coachtech-flma
-4. composer install
-5. cp .env.example .env
-6. php artisan key:generate
-7. php artisan config:clear
-8. php artisan storage:link
-9. npm install
-10. npm run build
-11. php artisan migrate --seed
-12. php artisan serve
-
-### テスト
-1. php artisan test
-
-## 初期情報
-
-#### admin (上位管理者)  
+### 開発環境構築
+プロジェクトフォルダ内で以下を実行
+```
+composer install
+```
+設定ファイルの作成と編集
+```
+cp .env.example .env
+php artisan key:generate
+php artisan config:clear
+```
+シンボリックリンクを設定する
+```
+php artisan storage:link
+```
+フロントエンドのビルド
+```
+npm install
+npm run dev
+```
+データベースの作成、データ挿入
+```
+php artisan migrate --seed
+```
+***
+開発環境では単体テストができます
+```
+php artisan test
+```
+***
+#### 初期データ
+1. admin (上位管理者)  
 email： admin@example.com  
 password： password1234
 
-## その他
-ダミーデータを使用する場合、"./database/seeders/DatabaseSeeder.php"のコメントアウトを外してシーディングを行ってください。また、ダミーデータを使用した場合に挿入されるデータは以下の通りです。
-- ユーザ1: プロフィール設定済みユーザ
-- ユーザ2: プロフィール未設定ユーザ
-- アイテム1, アイテム2, アイテム3: QRコード付き商品
-- アイテム4, アイテム5, アイテム6: QRコードなし商品
+2. ユーザ1: プロフィール設定済みユーザ
+3. ユーザ2: プロフィール未設定ユーザ
+4. QRコード付き商品
+5. QRコードなし商品
+***
 
-mail送信機能の利用には.envファイルに設定が必要です。
+### 本番環境構築
+プロジェクトフォルダ内で以下を実行
+```
+composer install --no-dev
+```
+設定ファイルの作成と編集
+```
+cp .env.example .env
+php artisan key:generate
+php artisan config:clear
+```
+シンボリックリンクを設定する
+```
+php artisan storage:link
+```
+フロントエンドのビルド
+```
+npm install
+npm run build
+```
+データベースの作成、データ挿入
+```
+php artisan migrate
+```
+
+### 注意事項
+- mail送信機能の利用には、別途.envファイルに設定が必要。
+- 本番環境を構築する場合、「adminsテーブル」と「conditionsテーブル」に初期データを挿入する。
